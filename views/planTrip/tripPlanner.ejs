@@ -1,0 +1,256 @@
+
+
+<section class="content-section">
+    <h2>Plan Your Perfect Jharkhand Journey</h2>
+    <p>Create your ideal itinerary based on your preferences, budget, and travel style.</p>
+
+    <div class="planner-form">
+        <h3>Start Your Trip Planning</h3>
+        <form id="tripPlannerForm">
+            <div class="form-section">
+                <h4>Basic Information</h4>
+                
+                <div class="form-group">
+                    <label for="startingPoint">Starting Point</label>
+                    <select id="startingPoint" name="startingPoint" required>
+                        <option value="">Select your starting city</option>
+                        <option value="Ranchi">Ranchi</option>
+                        <option value="Jamshedpur">Jamshedpur</option>
+                        <option value="Dhanbad">Dhanbad</option>
+                        <option value="Bokaro">Bokaro</option>
+                        <option value="Hazaribagh">Hazaribagh</option>
+                        <option value="Deoghar">Deoghar</option>
+                        <option value="Giridih">Giridih</option>
+                        <option value="Dumka">Dumka</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Primary Destination</label>
+                    <select id="destination" name="destination" required>
+                        <option value="">Select your destination</option>
+                        <option value="Ranchi">Ranchi</option>
+                        <option value="Jamshedpur">Jamshedpur</option>
+                        <option value="Dhanbad">Dhanbad</option>
+                        <option value="Hazaribagh">Hazaribagh</option>
+                        <option value="Deoghar">Deoghar</option>
+                        <option value="Netarhat">Netarhat</option>
+                        <option value="Betla National Park">Betla National Park</option>
+                        <option value="Parasnath">Parasnath</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="duration">Duration (Days)</label>
+                        <input type="number" id="duration" name="duration" min="1" max="30" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="people">Number of People</label>
+                        <input type="number" id="people" name="people" min="1" max="50" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">Budget Type</label>
+                    <select id="budget" name="budget" required onchange="updateTransportRecommendation()">
+                        <option value="">Select your budget</option>
+                        <option value="budget">Budget (₹500-1500/day)</option>
+                        <option value="moderate">Moderate (₹1500-3000/day)</option>
+                        <option value="comfort">Comfort (₹3000-5000/day)</option>
+                        <option value="luxury">Luxury (₹5000+/day)</option>
+                    </select>
+                </div>
+
+                <div id="transportRecommendation" class="transport-recommendation" style="display: none;"></div>
+            </div>
+
+            <div class="form-section">
+                <h4>Travel Interests</h4>
+                <div class="interests-grid">
+                    <label class="interest-item">
+                        <input type="checkbox" name="interests" value="nature">
+                        <span>Nature & Wildlife</span>
+                    </label>
+                    <label class="interest-item">
+                        <input type="checkbox" name="interests" value="adventure">
+                        <span>Adventure</span>
+                    </label>
+                    <label class="interest-item">
+                        <input type="checkbox" name="interests" value="culture">
+                        <span>Culture & Heritage</span>
+                    </label>
+                    <label class="interest-item">
+                        <input type="checkbox" name="interests" value="spiritual">
+                        <span>Spiritual</span>
+                    </label>
+                    <label class="interest-item">
+                        <input type="checkbox" name="interests" value="photography">
+                        <span>Photography</span>
+                    </label>
+                    <label class="interest-item">
+                        <input type="checkbox" name="interests" value="food">
+                        <span>Local Cuisine</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h4>Additional Preferences</h4>
+                <div class="form-group">
+                    <label for="specialRequirements">Special Requirements (Optional)</label>
+                    <textarea id="specialRequirements" name="specialRequirements" rows="3" 
+                              placeholder="Any specific needs, dietary restrictions, accessibility requirements, etc."></textarea>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-button">Generate My Itinerary</button>
+        </form>
+
+        <div id="loading" class="loading-container" style="display: none;">
+            <div class="spinner"></div>
+            <p>Creating your perfect itinerary...</p>
+        </div>
+    </div>
+</section>
+
+<script>
+    const form = document.getElementById('tripPlannerForm');
+
+    // Transport recommendations by budget
+    const transportByBudget = {
+        budget: {
+            primary: ['bus', 'train', 'bicycle'],
+            reason: 'Most economical and eco-friendly options',
+            tips: '🚌 Bus & 🚂 Train are budget-friendly while minimizing carbon footprint. Consider bicycles for short distances!'
+        },
+        moderate: {
+            primary: ['train', 'bus', 'car'],
+            reason: 'Balance between cost and comfort with good sustainability',
+            tips: '🚂 Train is ideal for longer distances. 🚌 Bus for shorter routes. Private car only when necessary.'
+        },
+        comfort: {
+            primary: ['train', 'car', 'flight'],
+            reason: 'Comfort-focused but consider eco-friendly options first',
+            tips: '🚂 Train offers comfort with lower emissions. 🚗 Car provides flexibility. Avoid flight if possible.'
+        },
+        luxury: {
+            primary: ['car', 'flight', 'train'],
+            reason: 'Premium experience with sustainability considerations',
+            tips: '🚗 Premium cars offer comfort. Consider offsetting flight emissions. 🚂 Luxury trains available!'
+        }
+    };
+
+    const transportData = {
+        bus: { icon: '🚌', name: 'Bus', co2: '89g/km', cost: 'Low' },
+        train: { icon: '🚂', name: 'Train', co2: '41g/km', cost: 'Low-Moderate' },
+        car: { icon: '🚗', name: 'Car', co2: '192g/km', cost: 'Moderate' },
+        flight: { icon: '✈️', name: 'Flight', co2: '255g/km', cost: 'High' },
+        bicycle: { icon: '🚴', name: 'Bicycle', co2: '0g/km', cost: 'Free' },
+        walking: { icon: '🚶', name: 'Walking', co2: '0g/km', cost: 'Free' }
+    };
+
+    // Update transport recommendation based on budget
+    function updateTransportRecommendation() {
+        const budget = document.getElementById('budget').value;
+        const recommendationDiv = document.getElementById('transportRecommendation');
+
+        if (!budget) {
+            recommendationDiv.style.display = 'none';
+            return;
+        }
+
+        const budgetData = transportByBudget[budget];
+        const primaryTransports = budgetData.primary;
+
+        let html = `
+            <h5>🌱 Recommended Transport for Your Budget</h5>
+            <div class="transport-cards-mini">
+        `;
+
+        primaryTransports.forEach((transport, index) => {
+            const data = transportData[transport];
+            const isRecommended = index === 0;
+            html += `
+                <div class="transport-card-mini ${isRecommended ? 'recommended' : ''}">
+                    <div class="transport-card-mini-icon">${data.icon}</div>
+                    <div class="transport-card-mini-name">${data.name}</div>
+                    <div class="transport-card-mini-co2">
+                        <strong>${data.co2}</strong> CO₂
+                    </div>
+                    <div style="font-size: 11px; color: #666;">📊 ${data.cost}</div>
+                    ${isRecommended ? '<div class="transport-card-mini-badge">✓ BEST CHOICE</div>' : ''}
+                </div>
+            `;
+        });
+
+        html += `
+            </div>
+            <div class="budget-info">
+                <strong>Why these options?</strong> ${budgetData.reason}
+                <br><br>
+                <strong>Tip:</strong> ${budgetData.tips}
+            </div>
+        `;
+
+        recommendationDiv.innerHTML = html;
+        recommendationDiv.style.display = 'block';
+    }
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const startingPoint = document.getElementById('startingPoint').value.trim();
+        const destination = document.getElementById('destination').value.trim();
+        const duration = parseInt(document.getElementById('duration').value);
+        const people = parseInt(document.getElementById('people').value);
+        const budget = document.getElementById('budget').value;
+        const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value);
+        const specialRequirements = document.getElementById('specialRequirements').value.trim();
+
+        // Validation
+        if (!startingPoint || !destination || !duration || !people || !budget) {
+            alert('Please fill in all required fields');
+            return;
+        }
+
+        if (interests.length === 0) {
+            alert('Please select at least one interest');
+            return;
+        }
+
+        if (duration < 1 || duration > 30) {
+            alert('Trip duration should be between 1 and 30 days.');
+            return;
+        }
+
+        if (people < 1 || people > 50) {
+            alert('Number of people should be between 1 and 50.');
+            return;
+        }
+
+        // Show loading
+        document.getElementById('loading').style.display = 'block';
+        form.style.display = 'none';
+
+        // Prepare data to send
+        const formData = {
+            startingPoint,
+            destination,
+            duration,
+            people,
+            budget,
+            interests: interests.join(','),
+            specialRequirements
+        };
+
+        // Store in localStorage and redirect to results
+        localStorage.setItem('tripPlan', JSON.stringify(formData));
+        
+        // Simulate API call delay
+        setTimeout(() => {
+            window.location.href = '/plantrip/itinerary';
+        }, 2000);
+    });
+</script>

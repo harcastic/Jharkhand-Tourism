@@ -1,0 +1,1125 @@
+<section class="content-section">
+    <div class="itinerary-container">
+        <div class="itinerary-header">
+            <h2>Your Personalized Jharkhand Itinerary</h2>
+            <div id="trip-summary" class="trip-summary"></div>
+        </div>
+
+        <div class="content-grid">
+            <div class="itinerary-content">
+                <div id="itinerary-details" class="itinerary-details">
+                    <!-- Itinerary will be loaded here -->
+                </div>
+
+                <div class="tips-section">
+                    <h3>Travel Tips</h3>
+                    <ul id="tips-list" class="tips-list"></ul>
+                </div>
+
+                <div class="carbon-section">
+                    <h3>🌍 Carbon Footprint & Sustainability</h3>
+                    <div id="carbon-footprint" class="carbon-info"></div>
+                    <div id="transport-section" class="transport-section">
+                        <h4>🚌 Recommended Transport Options</h4>
+                        <div id="transport-options" class="transport-grid"></div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button onclick="window.print()" class="print-button">Print Itinerary</button>
+                    <a href="/plantrip/trip-Planner" class="reset-link">Plan Another Trip</a>
+                </div>
+            </div>
+
+            <div class="map-sidebar">
+                <div class="map-container">
+                    <h3>📍 Your Journey Map</h3>
+                    <div id="map" style="width: 100%; height: 400px;"></div>
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <span class="legend-marker" style="background: #ff4444;"></span>
+                            <span>Starting Point</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker" style="background: #4444ff;"></span>
+                            <span>Attractions</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker" style="background: purple;"></span>
+                            <span>End Point</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.itinerary-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.itinerary-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 50px 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.itinerary-header h2 {
+  margin: 0 0 25px 0;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.trip-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.summary-item {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 18px;
+  border-radius: 8px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.summary-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.summary-item-label {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-item-value {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.itinerary-content {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.itinerary-details {
+  margin-bottom: 40px;
+}
+
+.day-section {
+  margin-bottom: 25px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2ff 100%);
+  border-radius: 10px;
+  border-left: 5px solid #667eea;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.day-section:hover {
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+  transform: translateX(4px);
+}
+
+.day-section h4 {
+  color: #667eea;
+  margin: 0 0 16px 0;
+  font-size: 19px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-section h4:before {
+  content: "📅";
+  font-size: 20px;
+}
+
+.day-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.day-section li {
+  padding: 12px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: color 0.2s ease;
+}
+
+.day-section li:hover {
+  color: #667eea;
+}
+
+.day-section li:before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tips-section {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e8f4ff 100%);
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 5px solid #0a93ef;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(10, 147, 239, 0.1);
+}
+
+.tips-section h3 {
+  color: #0a6ba8;
+  margin: 0 0 18px 0;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tips-section h3:before {
+  content: "💡";
+  font-size: 20px;
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tips-list li {
+  padding: 12px 0;
+  padding-left: 28px;
+  position: relative;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tips-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #0a93ef;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.carbon-section {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 5px solid #4caf50;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.1);
+}
+
+.carbon-section h3 {
+  color: #2e7d32;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carbon-info {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #c8e6c9;
+}
+
+.carbon-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e8f5e9;
+}
+
+.carbon-metric:last-child {
+  border-bottom: none;
+}
+
+.carbon-metric-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.carbon-metric-label strong {
+  color: #2e7d32;
+  font-size: 14px;
+}
+
+.carbon-metric-label small {
+  color: #666;
+  font-size: 12px;
+}
+
+.carbon-metric-value {
+  text-align: right;
+}
+
+.carbon-metric-value .value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+.carbon-metric-value .unit {
+  font-size: 12px;
+  color: #666;
+}
+
+.carbon-footer {
+  background: #fff3e0;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #e65100;
+  margin-top: 15px;
+  border-left: 3px solid #ff9800;
+}
+
+.transport-section {
+  margin-top: 25px;
+}
+
+.transport-section h4 {
+  color: #2e7d32;
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.transport-card {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 2px solid #c8e6c9;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-left: 4px solid #4caf50;
+}
+
+.transport-card:hover {
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+  transform: translateY(-2px);
+  border-left: 4px solid #2e7d32;
+}
+
+.transport-card.selected {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid #4caf50;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.transport-card-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.transport-card-name {
+  font-weight: 600;
+  color: #2e7d32;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.transport-card-co2 {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.transport-card-co2 strong {
+  color: #2e7d32;
+  font-size: 13px;
+}
+
+.transport-card-savings {
+  font-size: 11px;
+  background: #e8f5e9;
+  padding: 6px 8px;
+  border-radius: 4px;
+  color: #2e7d32;
+  font-weight: 600;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.sustainability-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.print-button,
+.reset-link {
+  flex: 1;
+  padding: 15px 24px;
+  background: linear-gradient(135deg, #0a93ef 0%, #0676c9 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(10, 147, 239, 0.2);
+}
+
+.print-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(10, 147, 239, 0.3);
+}
+
+.reset-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.reset-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.map-sidebar {
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.map-container h3 {
+  color: #667eea;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#map {
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #f0f0f0;
+}
+
+.map-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #f0f2ff 100%);
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+.legend-marker {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+@media print {
+  .button-group {
+    display: none;
+  }
+  
+  .map-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-sidebar {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .itinerary-header {
+    padding: 35px 20px;
+  }
+
+  .itinerary-header h2 {
+    font-size: 26px;
+  }
+
+  .itinerary-content {
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .trip-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .day-section {
+    padding: 18px;
+  }
+
+  #map {
+    height: 350px;
+  }
+}
+</style>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKi2AiWDv1uLF8gsd0za8w4yYosxgHIUo"></script>
+
+<script>
+    // Get trip data from localStorage
+    const tripDataString = localStorage.getItem('tripPlan');
+    
+    if (!tripDataString) {
+        console.error('No trip data found in localStorage');
+        alert('No trip data found. Redirecting to planner...');
+        window.location.href = '/plantrip/trip-Planner';
+    }
+
+    const tripData = JSON.parse(tripDataString || '{}');
+
+    console.log('Trip Data loaded:', tripData);
+
+    // Activity database
+    const activities = {
+        'Ranchi': {
+            nature: ['Jamshedpur Steel City Tour', 'Tagore Hill Visit', 'Lake Picnic', 'Forest Trek', 'Botanical Garden'],
+            adventure: ['Rock Climbing at Hundru Falls', 'Trekking', 'Paragliding', 'Mountain Biking'],
+            culture: ['Jain Temple Visit', 'Tribal Art Gallery', 'Local Museums', 'Traditional Markets'],
+            spiritual: ['Ancient Temple Complex', 'Meditation Retreat', 'Ashram Visit'],
+            photography: ['Sunrise at Tagore Hill', 'Waterfall Photography', 'Street Photography'],
+            food: ['Local Dhabas', 'Street Food Tour', 'Traditional Cooking Class']
+        },
+        'Deoghar': {
+            nature: ['Basukinath Temple Trek', 'Sacred Sthal Waterfall', 'Nature Walk', 'Bird Watching'],
+            adventure: ['Hill Trekking', 'Waterfall Trek', 'River Crossing'],
+            culture: ['Ancient Temple Complex', 'Religious Site Tour', 'Local Crafts'],
+            spiritual: ['Pilgrimage Tour', 'Meditation Spots', 'Sacred Springs'],
+            photography: ['Waterfall Photography', 'Temple Architecture', 'Landscape'],
+            food: ['Temple Prasad', 'Local Cuisine', 'River-side Dining']
+        },
+        'Hazaribagh': {
+            nature: ['Lake Boating', 'Wildlife Sanctuary', 'Bird Watching', 'Nature Trail'],
+            adventure: ['Trekking', 'Water Sports', 'Camping', 'Fishing'],
+            culture: ['Local Crafts Market', 'Traditional Markets', 'Village Tour'],
+            spiritual: ['Temple Visits', 'Ashram Retreat', 'Meditation'],
+            photography: ['Lake Photography', 'Wildlife Shots', 'Sunset Views'],
+            food: ['Local Fish Dishes', 'Traditional Meals', 'Street Food']
+        },
+        'Jamshedpur': {
+            nature: ['Dalma Wildlife Sanctuary', 'Garden Tours', 'Lake Visits'],
+            adventure: ['Rock Climbing', 'Trekking', 'Water Sports'],
+            culture: ['Steel Museum', 'Art Gallery', 'Cultural Shows'],
+            spiritual: ['Temple Tours', 'Meditation'],
+            photography: ['Industrial Heritage', 'Nature Shots', 'City Landscape'],
+            food: ['Multi-cuisine Restaurants', 'Local Cuisine', 'Street Food']
+        },
+        'Dhanbad': {
+            nature: ['Lake Tours', 'Green Parks', 'Nature Reserve'],
+            adventure: ['Water Sports', 'Adventure Parks', 'Trekking'],
+            culture: ['Coal Mining Museum', 'Art Gallery', 'Historical Sites'],
+            spiritual: ['Temple Visits', 'Meditation Spots'],
+            photography: ['Industrial Photography', 'Lake Views', 'Sunset'],
+            food: ['Local Restaurants', 'Street Food', 'Traditional Cuisine']
+        },
+        'Betla National Park': {
+            nature: ['Tiger Safari', 'Bird Watching', 'Forest Trek', 'Wildlife Tour'],
+            adventure: ['Jungle Trekking', 'Camping'],
+            photography: ['Wildlife Photography', 'Nature Shots'],
+            culture: ['Tribal Village Tour'],
+            food: ['Camp Meals', 'Local Cuisine']
+        },
+        'Netarhat': {
+            nature: ['Hill Station Views', 'Trekking', 'Waterfall Visit'],
+            adventure: ['Mountain Biking', 'Trekking', 'Rock Climbing'],
+            photography: ['Sunrise Photography', 'Landscape', 'Waterfall'],
+            food: ['Local Cuisine', 'Hill Station Dining']
+        },
+        'Parasnath': {
+            nature: ['Hill Trek', 'Nature Walk', 'Scenic Views'],
+            adventure: ['Temple Trek', 'Rock Climbing'],
+            spiritual: ['Jain Temple Visit', 'Pilgrimage', 'Meditation'],
+            culture: ['Sacred Sites', 'Village Tour'],
+            food: ['Local Cuisine', 'Temple Food']
+        }
+    };
+
+    const budgetTips = {
+        budget: 'Stay in budget hotels, use local transport, eat at local restaurants',
+        moderate: 'Stay in mid-range hotels, mix of transport, enjoy some attractions',
+        comfort: 'Stay in good hotels, comfortable transport, enjoy dining',
+        luxury: 'Stay in premium hotels, private transport, fine dining'
+    };
+
+    // Transport options with carbon emissions (in kg CO2 per km)
+    const transportOptions = [
+        {
+            id: 'flight',
+            name: 'Flight',
+            icon: '✈️',
+            co2PerKm: 0.255,
+            costPerKm: 2.5,
+            description: 'Fastest but highest emissions'
+        },
+        {
+            id: 'car',
+            name: 'Private Car',
+            icon: '🚗',
+            co2PerKm: 0.192,
+            costPerKm: 1.8,
+            description: 'Convenient but moderate emissions'
+        },
+        {
+            id: 'bus',
+            name: 'Bus',
+            icon: '🚌',
+            co2PerKm: 0.089,
+            costPerKm: 0.6,
+            description: 'Eco-friendly & economical'
+        },
+        {
+            id: 'train',
+            name: 'Train',
+            icon: '🚂',
+            co2PerKm: 0.041,
+            costPerKm: 0.8,
+            description: 'Most eco-friendly option'
+        },
+        {
+            id: 'bicycle',
+            name: 'Bicycle',
+            icon: '🚴',
+            co2PerKm: 0,
+            costPerKm: 0,
+            description: 'Zero emissions, stay active'
+        },
+        {
+            id: 'walking',
+            name: 'Walking',
+            icon: '🚶',
+            co2PerKm: 0,
+            costPerKm: 0,
+            description: 'Zero emissions, explore locally'
+        }
+    ];
+
+    // Distance matrix (approximate distances between destinations in km)
+    const distanceMatrix = {
+        'Ranchi': 0,
+        'Deoghar': 240,
+        'Hazaribagh': 130,
+        'Jamshedpur': 140,
+        'Dhanbad': 180,
+        'Betla National Park': 200,
+        'Netarhat': 110,
+        'Parasnath': 220
+    };
+
+    // Destination coordinates for Google Maps
+    const destinationCoords = {
+        'Ranchi': { lat: 23.3441, lng: 85.3096 },
+        'Deoghar': { lat: 24.5000, lng: 86.6906 },
+        'Hazaribagh': { lat: 24.0175, lng: 85.4065 },
+        'Jamshedpur': { lat: 22.8000, lng: 86.1855 },
+        'Dhanbad': { lat: 23.7957, lng: 86.4304 },
+        'Betla National Park': { lat: 24.5089, lng: 84.5339 },
+        'Netarhat': { lat: 23.4665, lng: 84.3342 },
+        'Parasnath': { lat: 24.8000, lng: 86.0500 }
+    };
+
+    let map = null;
+    let markers = [];
+
+    // Initialize Google Map
+    function initMap() {
+        const destination = tripData.destination;
+        const coords = destinationCoords[destination] || destinationCoords['Ranchi'];
+        
+        const mapElement = document.getElementById('map');
+        if (!mapElement) {
+            console.error('Map element not found');
+            return;
+        }
+        
+        // Create map centered on destination
+        map = new google.maps.Map(mapElement, {
+            zoom: 12,
+            center: coords,
+            mapTypeControl: true,
+            zoomControl: true,
+            streetViewControl: false,
+            fullscreenControl: true,
+            styles: [
+                {
+                    featureType: "all",
+                    stylers: [{ lightness: 0.2 }]
+                }
+            ]
+        });
+
+        // Add starting point marker (red)
+        addMarker(coords, 'Starting Point - ' + destination, '#ff4444', 'http://maps.google.com/mapfiles/ms/icons/red-dot.png');
+        
+        // Add some attraction markers (blue)
+        const attractions = [
+            { name: 'Main Attraction', offset: { lat: 0.02, lng: 0.02 } },
+            { name: 'Secondary Attraction', offset: { lat: -0.02, lng: 0.02 } }
+        ];
+        
+        attractions.forEach(attraction => {
+            const markerCoord = {
+                lat: coords.lat + attraction.offset.lat,
+                lng: coords.lng + attraction.offset.lng
+            };
+            addMarker(markerCoord, attraction.name, '#4444ff', 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+        });
+
+        // Add end point marker (purple)
+        const endCoord = {
+            lat: coords.lat - 0.03,
+            lng: coords.lng - 0.03
+        };
+        addMarker(endCoord, 'End Point - ' + destination, 'purple', 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png');
+
+        // Draw route between points
+        drawRoute([coords, attractions[0].offset, attractions[1].offset, endCoord].map((point, idx) => {
+            if (idx === 0) return coords;
+            return {
+                lat: coords.lat + point.lat,
+                lng: coords.lng + point.lng
+            };
+        }));
+
+        // Trigger map resize after initialization
+        google.maps.event.trigger(map, 'resize');
+    }
+
+    // Add marker to map
+    function addMarker(position, title, color, icon) {
+        const marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: title,
+            icon: icon
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: `<div style="padding: 8px; font-size: 13px;"><strong>${title}</strong></div>`
+        });
+
+        marker.addListener('click', function() {
+            // Close all open info windows
+            markers.forEach(m => {
+                if (m.infoWindow) m.infoWindow.close();
+            });
+            infoWindow.open(map, marker);
+        });
+
+        marker.infoWindow = infoWindow;
+        markers.push(marker);
+    }
+
+    // Draw route between points
+    function drawRoute(points) {
+        const polyline = new google.maps.Polyline({
+            path: points,
+            geodesic: true,
+            strokeColor: '#667eea',
+            strokeOpacity: 0.7,
+            strokeWeight: 3,
+            map: map
+        });
+    }
+
+    // Calculate carbon footprint
+    function calculateCarbonFootprint() {
+        const destination = tripData.destination;
+        const duration = parseInt(tripData.duration) || 1;
+        const people = parseInt(tripData.people) || 1;
+        
+        // Estimate distance (assume average distance of 150km to destination)
+        const distance = distanceMatrix[destination] || 150;
+        
+        // Calculate emissions for each transport method
+        const emissions = {};
+        let minEmissions = Infinity;
+        let bestOption = 'bus';
+        
+        transportOptions.forEach(option => {
+            const totalEmissions = option.co2PerKm * distance * (option.id === 'flight' ? 1 : 2); // Round trip
+            const perPersonEmissions = totalEmissions / people;
+            emissions[option.id] = {
+                total: totalEmissions,
+                perPerson: perPersonEmissions,
+                option: option
+            };
+            
+            if (perPersonEmissions < minEmissions && option.id !== 'flight') {
+                minEmissions = perPersonEmissions;
+                bestOption = option.id;
+            }
+        });
+        
+        return {
+            distance: distance,
+            emissions: emissions,
+            bestOption: bestOption,
+            duration: duration,
+            people: people
+        };
+    }
+
+    // Display carbon footprint info
+    function displayCarbonFootprint() {
+        const carbonSection = document.getElementById('carbon-footprint');
+        if (!carbonSection) return;
+        
+        const footprint = calculateCarbonFootprint();
+        const flightEmission = footprint.emissions['flight'].perPerson;
+        const bestEmission = footprint.emissions[footprint.bestOption].perPerson;
+        const savings = flightEmission - bestEmission;
+        const savingsPercent = ((savings / flightEmission) * 100).toFixed(1);
+        
+        carbonSection.innerHTML = `
+            <div class="carbon-metric">
+                <div class="carbon-metric-label">
+                    <strong>Distance to Destination</strong>
+                    <small>Round trip estimation</small>
+                </div>
+                <div class="carbon-metric-value">
+                    <div class="value">${(footprint.distance * 2).toFixed(0)}</div>
+                    <div class="unit">km</div>
+                </div>
+            </div>
+            
+            <div class="carbon-metric">
+                <div class="carbon-metric-label">
+                    <strong>Trip Duration</strong>
+                    <small>Number of days</small>
+                </div>
+                <div class="carbon-metric-value">
+                    <div class="value">${footprint.duration}</div>
+                    <div class="unit">days</div>
+                </div>
+            </div>
+            
+            <div class="carbon-metric">
+                <div class="carbon-metric-label">
+                    <strong>Travelers</strong>
+                    <small>Number of people</small>
+                </div>
+                <div class="carbon-metric-value">
+                    <div class="value">${footprint.people}</div>
+                    <div class="unit">persons</div>
+                </div>
+            </div>
+            
+            <div class="carbon-metric">
+                <div class="carbon-metric-label">
+                    <strong>Best Option CO₂ Emissions</strong>
+                    <small>Per person (${footprint.emissions[footprint.bestOption].option.name})</small>
+                </div>
+                <div class="carbon-metric-value">
+                    <div class="value">${bestEmission.toFixed(2)}</div>
+                    <div class="unit">kg CO₂</div>
+                </div>
+            </div>
+            
+            <div class="carbon-metric">
+                <div class="carbon-metric-label">
+                    <strong>Potential Savings vs Flight</strong>
+                    <small>By choosing eco-friendly option</small>
+                </div>
+                <div class="carbon-metric-value">
+                    <div class="value" style="color: #4caf50;">${savings.toFixed(2)}</div>
+                    <div class="unit">${savingsPercent}% less</div>
+                </div>
+            </div>
+            
+            <div class="carbon-footer">
+                ℹ️ Choosing ${footprint.emissions[footprint.bestOption].option.name.toLowerCase()} over flight saves approximately <strong>${savings.toFixed(2)} kg CO₂ per person</strong>. 
+                This is equivalent to planting <strong>${(savings / 21).toFixed(1)} trees</strong>!
+            </div>
+        `;
+    }
+
+    // Display transport options
+    function displayTransportOptions() {
+        const transportDiv = document.getElementById('transport-options');
+        if (!transportDiv) return;
+        
+        const footprint = calculateCarbonFootprint();
+        const bestOption = footprint.bestOption;
+        
+        transportDiv.innerHTML = transportOptions.map(option => {
+            const emission = footprint.emissions[option.id];
+            const perPersonCo2 = emission.perPerson.toFixed(2);
+            const cost = (option.costPerKm * footprint.distance * 2 / footprint.people).toFixed(2);
+            const isSelected = option.id === bestOption;
+            const badge = isSelected ? '<span class="sustainability-badge">✓ RECOMMENDED</span>' : '';
+            
+            return `
+                <div class="transport-card ${isSelected ? 'selected' : ''}" onclick="selectTransport('${option.id}')">
+                    <div class="transport-card-icon">${option.icon}</div>
+                    <div class="transport-card-name">${option.name}</div>
+                    <div class="transport-card-co2">
+                        <strong>${perPersonCo2}</strong> kg CO₂
+                    </div>
+                    <div style="font-size: 12px; color: #666;">₹ ${cost}</div>
+                    ${badge}
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Select transport method
+    function selectTransport(transportId) {
+        console.log('Selected transport:', transportId);
+        // Can add functionality to update recommendations or booking
+    }
+
+    // Display trip summary
+    function displaySummary() {
+        const summary = document.getElementById('trip-summary');
+        if (!summary) {
+            console.error('trip-summary element not found');
+            return;
+        }
+        
+        summary.innerHTML = `
+            <div class="summary-item">
+                <div class="summary-item-label">Destination</div>
+                <div class="summary-item-value">${tripData.destination || 'N/A'}</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-item-label">Duration</div>
+                <div class="summary-item-value">${tripData.duration || 'N/A'} Days</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-item-label">Travelers</div>
+                <div class="summary-item-value">${tripData.people || 'N/A'} People</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-item-label">Budget</div>
+                <div class="summary-item-value">${tripData.budget || 'N/A'}</div>
+            </div>
+        `;
+    }
+
+    // Generate itinerary
+    function generateItinerary() {
+        const destination = tripData.destination;
+        const duration = parseInt(tripData.duration) || 3;
+        const interestsString = tripData.interests || '';
+        const interests = interestsString ? interestsString.split(',').map(i => i.trim()) : ['nature'];
+        
+        console.log('Generating itinerary for:', destination, 'Duration:', duration, 'Interests:', interests);
+        
+        const destinationActivities = activities[destination] || activities['Ranchi'];
+        let allActivities = [];
+        
+        // Collect activities based on interests
+        interests.forEach(interest => {
+            if (destinationActivities[interest]) {
+                allActivities = allActivities.concat(destinationActivities[interest]);
+            }
+        });
+
+        // If no activities found, use default
+        if (allActivities.length === 0) {
+            allActivities = Object.values(destinationActivities).flat();
+        }
+
+        console.log('Activities for itinerary:', allActivities);
+
+        // Distribute activities across days
+        const itineraryDiv = document.getElementById('itinerary-details');
+        if (!itineraryDiv) {
+            console.error('itinerary-details element not found');
+            return;
+        }
+        
+        itineraryDiv.innerHTML = '';
+
+        const activitiesPerDay = Math.max(1, Math.ceil(allActivities.length / duration));
+        let activityIndex = 0;
+
+        for (let day = 1; day <= duration; day++) {
+            const dayDiv = document.createElement('div');
+            dayDiv.className = 'day-section';
+            
+            let dayContent = `<h4>Day ${day}: ${destination}</h4><ul>`;
+            
+            // Add activities for this day
+            for (let i = 0; i < activitiesPerDay && activityIndex < allActivities.length; i++) {
+                dayContent += `<li>${allActivities[activityIndex++]}</li>`;
+            }
+            
+            // Add rest/travel time
+            if (day < duration) {
+                dayContent += `<li>Rest and prepare for next day</li>`;
+            } else {
+                dayContent += `<li>Departure preparation</li>`;
+            }
+            
+            dayContent += '</ul>';
+            dayDiv.innerHTML = dayContent;
+            itineraryDiv.appendChild(dayDiv);
+        }
+
+        // Display tips
+        const tipsList = document.getElementById('tips-list');
+        if (tipsList) {
+            tipsList.innerHTML = `
+                <li>${budgetTips[tripData.budget] || budgetTips.moderate}</li>
+                <li>Best time to visit: October to March</li>
+                <li>Pack comfortable walking shoes and weather-appropriate clothing</li>
+                <li>Try local cuisine and handicrafts</li>
+                <li>Book accommodations in advance during peak season</li>
+                <li>Carry necessary medications and first aid kit</li>
+                <li>Keep your phone charged and carry a power bank</li>
+            `;
+        }
+    }
+
+    // Wait for DOM to be ready before initializing
+    function initializeItinerary() {
+        displaySummary();
+        generateItinerary();
+        displayCarbonFootprint();
+        displayTransportOptions();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeItinerary();
+            // Wait for Google Maps API to load
+            if (window.google && window.google.maps) {
+                setTimeout(initMap, 500);
+            } else {
+                const checkMaps = setInterval(() => {
+                    if (window.google && window.google.maps) {
+                        clearInterval(checkMaps);
+                        initMap();
+                    }
+                }, 100);
+                setTimeout(() => clearInterval(checkMaps), 5000);
+            }
+        });
+    } else {
+        initializeItinerary();
+        // Wait for Google Maps API to load
+        if (window.google && window.google.maps) {
+            setTimeout(initMap, 500);
+        } else {
+            const checkMaps = setInterval(() => {
+                if (window.google && window.google.maps) {
+                    clearInterval(checkMaps);
+                    initMap();
+                }
+            }, 100);
+            setTimeout(() => clearInterval(checkMaps), 5000);
+        }
+    }
+</script>

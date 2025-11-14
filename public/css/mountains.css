@@ -1,0 +1,240 @@
+/* ========== MOUNTAIN PAGE ========== */
+
+/* Hero */
+.mountains-hero {
+  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), 
+              url("/assets/landingimg.jpg") center/cover no-repeat fixed;
+  text-align: center;
+  padding: 10rem 2rem;
+  color: white;
+}
+
+.mountains-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+
+.mountains-subtitle {
+  font-size: 1.4rem;
+  margin: 1.2rem auto 2rem auto;
+  max-width: 700px;
+}
+
+.mountains-cta-btn {
+  display: inline-block;
+  background: #2a502a;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.mountains-cta-btn:hover { background: #3a6a3a; }
+
+/* Timeline */
+.mountains-timeline {
+  padding: 5rem 2rem;
+  background: #fdfcf9;
+}
+
+.timeline-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.timeline-container {
+  display: grid;
+  gap: 2rem;
+}
+
+.timeline-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.timeline-item:hover {
+  transform: translateY(-8px);
+}
+
+.timeline-item img {
+  flex: 1 1 250px;
+  max-width: 350px;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.timeline-text {
+  flex: 2 1 300px;
+}
+
+/* Flip Cards */
+.mountains-cards {
+  padding: 5rem 2rem;
+  background: #fff;
+}
+
+.cards-header {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.mountain-card {
+  perspective: 1000px;
+  position: relative;
+  height: 280px;
+}
+.mountain-card .card-front, 
+.mountain-card .card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  transition: transform 0.8s;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.card-front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-front h3 {
+  margin-top: 1rem;
+  color: #2a502a;
+}
+
+.card-back {
+  background: #2a502a;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transform: rotateY(180deg);
+}
+
+.mountain-card:hover .card-front {
+  transform: rotateY(180deg);
+}
+.mountain-card:hover .card-back {
+  transform: rotateY(360deg);
+}
+
+/* Call to Action */
+.mountains-cta {
+  background: linear-gradient(to right, #2a502a, #4c8e4c);
+  color: #fff;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+.mountains-cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.mountains-cta .cta-button {
+  background: #fff;
+  color: #2a502a;
+  line-height: 3.9rem;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.mountains-cta .cta-button:hover {
+  background: #f3f3f3;
+}
+
+/* Animations */
+.fade-mountains {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+}
+.show-mountains {
+  opacity: 1;
+  transform: translateY(0);
+}
+.delay-m1 { transition-delay: 0.2s; }
+.delay-m2 { transition-delay: 0.4s; }
+
+/* ================== RESPONSIVE DESIGN ================== */
+
+/* Large tablets / small laptops */
+@media (max-width: 1024px) {
+  .mountains-title {
+    font-size: 2.8rem;
+  }
+  .timeline-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .timeline-item img {
+    max-width: 100%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .mountains-title {
+    font-size: 2.2rem;
+  }
+  .mountains-subtitle {
+    font-size: 1.1rem;
+  }
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .mountain-card {
+    height: 250px;
+  }
+  .timeline-container {
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .mountains-hero {
+    padding: 6rem 1.5rem;
+  }
+  .mountains-title {
+    font-size: 1.8rem;
+  }
+  .mountains-subtitle {
+    font-size: 1rem;
+  }
+  .mountains-cta-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .mountain-card {
+    height: 220px;
+  }
+  .timeline-item {
+    padding: 1rem;
+  }
+}

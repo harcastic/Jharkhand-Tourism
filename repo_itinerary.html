@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Itinerary - Jharkhand Travel Planner</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/itinerary.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">Jharkhand Tourism</h1>
+                <div class="nav-actions">
+                    <button onclick="window.print()" class="print-btn">Print Itinerary</button>
+                    <a href="plan.html" class="back-link">← Plan New Trip</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="itinerary-main">
+        <div class="itinerary-container">
+            <div class="itinerary-header">
+                <h2>Your Personalized Jharkhand Itinerary</h2>
+                <div id="trip-summary" class="trip-summary"></div>
+            </div>
+
+            <div class="content-grid">
+                <div class="itinerary-content">
+                    <div id="itinerary-details" class="itinerary-details">
+                        <!-- Itinerary will be loaded here -->
+                    </div>
+
+                    <div class="sustainability-section">
+                        <h3>🌱 Sustainability Report</h3>
+                        <div id="carbon-footprint" class="carbon-info"></div>
+                    </div>
+
+                    <div class="hotels-section">
+                        <h3>🏨 Recommended Hotels</h3>
+                        <div id="hotels-list" class="hotels-grid"></div>
+                    </div>
+
+                    <div class="transport-section">
+                        <h3>🚌 Transportation Options</h3>
+                        <div id="transport-options" class="transport-grid"></div>
+                    </div>
+                </div>
+
+                <div class="map-sidebar">
+                    <div class="map-container">
+                        <h3>📍 Your Journey Map</h3>
+                        <div id="map"></div>
+                        <div class="map-legend">
+                            <div class="legend-item">
+                                <span class="legend-marker" style="background: #ff4444;"></span>
+                                <span>Starting Point</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-marker" style="background: #4444ff;"></span>
+                                <span>Attractions</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-marker" style="background: #44ff44;"></span>
+                                <span>Hotels</span>
+                            </div>
+                            <div class="legend-item">
+          <span class="legend-marker" style="background: purple;"></span>
+          <span>End Point</span>
+      </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="config/config.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKi2AiWDv1uLF8gsd0za8w4yYosxgHIUo&callback=initMap" async defer></script>
+    <script src="js/gemini-service.js"></script>
+    <script src="js/map-service.js"></script>
+    <script src="js/itinerary.js"></script>
+</body>
+</html>

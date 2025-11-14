@@ -1,0 +1,115 @@
+<section class="wildlife-hero">
+  <div class="wildlife-hero-content">
+    <h1 class="wildlife-title">Wildlife Safaris</h1>
+    <p class="wildlife-subtitle">
+      Step into untamed forests, meet majestic elephants, hear the call of peacocks — 
+      Jharkhand’s wild is waiting.
+    </p>
+    <a href="#wildlife-highlights" class="wildlife-cta-btn">Discover Safaris ↓</a>
+  </div>
+</section>
+
+<!-- Wildlife Highlights Timeline -->
+<section class="wildlife-timeline" id="wildlife-highlights">
+  <h2 class="wildlife-timeline-title">Top Wildlife Destinations</h2>
+  <div class="wildlife-timeline-container">
+
+    <div class="wildlife-timeline-item fade-wildlife">
+      <img src="/assets/hazaribagh.png" alt="Hazaribagh National Park">
+      <div class="wildlife-timeline-text">
+        <h3>Hazaribagh National Park</h3>
+        <p>The Hazaribagh Wildlife Sanctuary, established in 1955, is a protected area on a low, hilly plateau in Jharkhand. 
+          Once a royal hunting ground, it features lush tropical forests, hills, and grassy meadows, with a central lake. 
+          While tiger populations have dwindled, the sanctuary is home to a variety of animals, including sambar, nilgai, wild boar, sloth bears, and leopards. 
+          Visitors can explore the sanctuary through jeep safaris or observe wildlife from watchtowers, particularly around waterholes during dawn and dusk. 
+          The best time to visit is from October to April, and accommodation is available within the park.</p>
+      </div>
+    </div>
+
+    <div class="wildlife-timeline-item fade-wildlife delay-w1">
+      <img src="/assets/dalma.png" alt="Dalma Elephant Sanctuary">
+      <div class="wildlife-timeline-text">
+        <h3>Dalma Sanctuary</h3>
+        <p>A paradise of elephants and sal forests for eco-tourists and adventurers alike.
+          <br>
+          Dalma Wildlife Sanctuary is located 10 km from the city of Jamshedpur in the Indian state of Jharkhand. 
+          It was inaugurated by Sanjay Gandhi in 1975. Dalma Wildlife Sanctuary is situated around the Dalma Hills. 
+          Dalma Wildlife Sanctuary is a much larger area starting from Chandil to 40 km east. 
+          The Sanctuary on paper is spread around in 195 km².
+        </p>
+      </div>
+    </div>
+
+    <div class="wildlife-timeline-item fade-wildlife delay-w2">
+      <img src="/assets/palmau.png" alt="Palamau Tiger Reserve">
+      <div class="wildlife-timeline-text">
+        <h3>Palamau Tiger Reserve</h3>
+        <p>One of India’s earliest tiger reserves, echoing with bird calls and jungle trails.
+          <br>
+          The Palamau Tiger Reserve is located in the Latehar district of Jharkhand, 
+          and was one of the first nine tiger reserves established in India under Project Tiger in 1973. 
+          The reserve encompasses the Betla National Park and Palamau Wildlife Sanctuary. 
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Wildlife Flip Cards -->
+<section class="wildlife-cards">
+  <h2 class="wildlife-cards-header">Safari Activities</h2>
+  <div class="wildlife-cards-grid">
+    <div class="wildlife-card fade-wildlife">
+      <div class="wildlife-card-front">
+        <img src="/assets/jeepSafari.png" alt="Jeep Safari">
+        <h3>Jeep Safari</h3>
+      </div>
+      <div class="wildlife-card-back">
+        <p>Thrilling open-jeep rides to explore the jungles and spot wild animals up close.</p>
+      </div>
+    </div>
+
+    <div class="wildlife-card fade-wildlife delay-w1">
+      <div class="wildlife-card-front">
+        <img src="/assets/birdwatching.png" alt="Birdwatching">
+        <h3>Bird Watching</h3>
+      </div>
+      <div class="wildlife-card-back">
+        <p>Discover 140+ bird species, from peacocks to rare migratory visitors.</p>
+      </div>
+    </div>
+
+    <div class="wildlife-card fade-wildlife delay-w2">
+      <div class="wildlife-card-front">
+        <img src="/assets/boating.png" alt="Lake Boating">
+        <h3>Lake Boating</h3>
+      </div>
+      <div class="wildlife-card-back">
+        <p>Serene boat rides inside lush reserves, perfect for photographers and families.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="wildlife-cta">
+  <h2>Ready for the Wild?</h2>
+  <p>Pack your boots, grab your binoculars — your Jharkhand wildlife story begins here.</p>
+  <a href="/plantrip/trip-planner" class="wildlife-cta-button">Plan My Safari →</a>
+</section>
+
+<script>
+  // Scroll animations
+  const wildlifeObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show-wildlife');
+        wildlifeObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.2});
+
+  document.querySelectorAll('.fade-wildlife')
+    .forEach(el => wildlifeObserver.observe(el));
+</script>

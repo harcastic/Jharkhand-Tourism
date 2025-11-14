@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jharkhand Tourism</title>
+  <link rel="stylesheet" href="/css/template.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="stylesheet" href="/css/mountains.css" />
+  <link rel="stylesheet" href="/css/wildlife.css" />
+  <link rel="stylesheet" href="/css/popular.css" />
+  <link rel="stylesheet" href="/css/chatbot.css" />
+  <link rel="stylesheet" href="/css/weather.css" />
+  <link rel="stylesheet" href="/css/tripplanner.css" />
+  
+
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo">Visit Jharkhand</a>
+
+      <!-- Hamburger for mobile -->
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+
+      <!-- Nav Menu -->
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item">
+          <p class="nav-link">About Tourism</p>
+          <div class="dropdown">
+            <a href="/about/our-story.html" class="dropdown-item">Our Story</a>
+            <a href="/about/mission-vision.html" class="dropdown-item">Mission & Vision</a>
+            <a href="/about/why-choose-us.html" class="dropdown-item">Why Choose Us</a>
+            <a href="/about/our-team.html" class="dropdown-item">Our Team</a>
+            <a href="/about/testimonials.html" class="dropdown-item">Testimonials</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link">Plan Your Trip</p>
+          <div class="dropdown">  
+            <a href="/plantrip/trip-Planner" class="dropdown-item">Trip Planner</a>
+            <a href="/plan/travel-packages.html" class="dropdown-item">Travel Packages</a>
+            <a href="/plantrip/weather" class="dropdown-item">Weather </a>
+
+          </div>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link">Destinations</p> 
+            <div class="dropdown"> 
+              <a href="/destinations/popular-destinations" class="dropdown-item">Popular Destinations</a> 
+              <a href="/destinations/mountains" class="dropdown-item">Mountain Adventures</a> 
+              <a href="/destinations/city-breaks.html" class="dropdown-item">City Breaks</a> 
+              <a href="/destinations/cultural-tours.html" class="dropdown-item">Cultural Tours</a> 
+              <a href="/destinations/wildlife-safaries" class="dropdown-item">Wildlife Safaris</a> 
+            </div> 
+          </li> 
+        <li class="nav-item">
+          <p class="nav-link">Inspirations</p>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main-container">
+    <%- body %>
+  </main>
+
+<!-- Chatbot Floating Button -->
+  <div id="chatbot-btn">
+    <img src="/assets/chatbotlogo.png" alt="Chatbot">
+  </div>
+
+  <!-- Chatbot Window -->
+  <div id="chatbot-window">
+    <div id="chat-header">Chat with Bot</div>
+    <div id="chat-messages"></div>
+    <div id="chat-input">
+      <input type="text" id="user-input" placeholder="press ESC to exit chat...">
+      <button id="send-btn" >Send</button>
+    </div>
+  </div>
+
+  <script>
+  const chatbotBtn = document.getElementById("chatbot-btn");
+  const chatbotWindow = document.getElementById("chatbot-window");
+  const sendBtn = document.getElementById("send-btn");
+  const userInput = document.getElementById("user-input");
+  const chatMessages = document.getElementById("chat-messages");
+
+  const API_URL = "http://localhost:3000/api/chat"; 
+  // Replace with your RAG backend endpoint
+
+  // Toggle chatbot window
+  chatbotBtn.addEventListener("click", () => {
+    chatbotWindow.style.display =
+      chatbotWindow.style.display === "flex" ? "none" : "flex";
+  });
+
+  function addMessage(message, sender) {
+    const msgDiv = document.createElement("div");
+    msgDiv.classList.add("message", sender === "user" ? "user-message" : "bot-message");
+    msgDiv.textContent = message;
+    chatMessages.appendChild(msgDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    addMessage(message, "user");
+    userInput.value = "";
+
+    // Show "typing..."
+    const typingMsg = document.createElement("div");
+    typingMsg.classList.add("message", "bot-message");
+    typingMsg.textContent = "Bot is typing...";
+    chatMessages.appendChild(typingMsg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await response.json();
+      typingMsg.remove(); // remove typing message
+
+      addMessage(data.reply, "bot"); // assuming API returns { reply: "..." }
+    } catch (err) {
+      typingMsg.remove();
+      addMessage("⚠️ Error: Could not reach server.", "bot");
+      console.error(err);
+    }
+  }
+
+  sendBtn.addEventListener("click", sendMessage);
+  userInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+
+  function enableEscClose(selector, displayStyle = "flex") {
+    const element = document.querySelector(selector);
+    if (!element) return;
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        if (element.style.display === displayStyle) {
+          element.style.display = "none";
+        }
+      }
+    });
+  }
+  enableEscClose("#chatbot-window");
+</script>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>About Visit Jharkhand</h4>
+        <p>Your trusted partner in unforgettable travel experiences.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/plan">Plan Your Trip</a></li>
+          <li><a href="/destinations">Destinations</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Connect With Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Visit Jharkhand. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+
+  <!-- Navbar Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

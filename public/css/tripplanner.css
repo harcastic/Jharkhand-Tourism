@@ -1,0 +1,331 @@
+/* ==================== TRIP PLANNER STYLES ==================== */
+
+.planner-form {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.planner-form h3 {
+  color: #2c3e50;
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section h4 {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #0a93ef;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group label {
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 15px;
+  background: #fff;
+  color: #333;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0a93ef;
+  box-shadow: 0 0 0 3px rgba(10, 147, 239, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.interest-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+}
+
+.interest-item:hover {
+  border-color: #0a93ef;
+  background: #f0f8ff;
+}
+
+.interest-item input[type="checkbox"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.interest-item span {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px 24px;
+  background: #0a93ef;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  background: #0878c9;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid #f0f0f0;
+  border-top: 4px solid #0a93ef;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* ==================== TRANSPORT RECOMMENDATION ==================== */
+
+.transport-recommendation {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 15px;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.15);
+}
+
+.transport-recommendation h5 {
+  color: #2e7d32;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.transport-cards-mini {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.transport-card-mini {
+  background: white;
+  border: 2px solid #c8e6c9;
+  border-radius: 6px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.transport-card-mini:hover {
+  border-color: #4caf50;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.15);
+}
+
+.transport-card-mini.recommended {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border-color: #4caf50;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.2);
+}
+
+.transport-card-mini-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.transport-card-mini-name {
+  font-weight: 600;
+  color: #2e7d32;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.transport-card-mini-co2 {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.transport-card-mini-co2 strong {
+  color: #2e7d32;
+}
+
+.transport-card-mini-badge {
+  display: inline-block;
+  background: #4caf50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.budget-info {
+  background: white;
+  border-left: 3px solid #0a93ef;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #666;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.budget-info strong {
+  color: #2c3e50;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 768px) {
+  .planner-form {
+    padding: 30px 20px;
+    margin: 30px 15px;
+  }
+
+  .planner-form h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .planner-form {
+    padding: 25px 15px;
+    margin: 20px 10px;
+  }
+
+  .planner-form h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .form-section h4 {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 11px 12px;
+    font-size: 15px;
+  }
+
+  .submit-button {
+    padding: 12px 20px;
+    font-size: 15px;
+  }
+
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

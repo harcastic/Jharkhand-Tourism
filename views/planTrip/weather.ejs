@@ -1,0 +1,78 @@
+ <div class="weather-container">
+    <h1>🌦️ Jharkhand Tourism Weather Guide</h1>
+    <p>Check if your trip is worth it today!</p>
+
+    <input type="text" id="cityInput" placeholder="Enter Jharkhand City (e.g. Ranchi)" />
+    <button id="checkBtn">Check Weather</button>
+
+    <div id="result" class="hidden"></div>
+  </div> 
+<script>
+    const API_KEY = "9e6c3196c209cea9584368f9378169f2";
+
+// 👇 v2: fetch weather via OpenWeather API
+document.getElementById("checkBtn").addEventListener("click", () => {
+    const city = document.getElementById("cityInput").value.trim();
+    const resultDiv = document.getElementById("result");
+
+    if (!city) {
+        alert("Please enter a Jharkhand city (e.g., Ranchi, Deoghar, Hazaribagh)");
+        return;
+    }
+
+    // Construct URL
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},IN&appid=${API_KEY}&units=metric`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log("API Data:", data); // 👀 Debug
+
+            if (!data || (data.cod !== 200 && data.cod !== "200")) {
+                resultDiv.innerHTML = `<p>❌ Weather not found for "${city}".</p>`;
+                resultDiv.classList.remove("hidden");
+                return;
+            }
+
+            // Extract data safely
+            const temp = data.main?.temp ?? "N/A";
+            const condition = data.weather?.[0]?.main?.toLowerCase() ?? "unknown";
+            const desc = data.weather?.[0]?.description ?? "";
+            const humidity = data.main?.humidity ?? "N/A";
+            const wind = data.wind?.speed ?? "N/A";
+
+            // Recommendation logic
+            let recommendation = "";
+            let recClass = "";
+
+            if (condition.includes("rain") || condition.includes("storm")) {
+                recommendation = "⚠️ Not recommended (Rain/Storm expected)";
+                recClass = "bad";
+            } else if (temp > 35) {
+                recommendation = "🥵 Very hot, travel in morning/evening.";
+                recClass = "medium";
+            } else if (temp < 10) {
+                recommendation = "🥶 Too cold, carry warm clothes.";
+                recClass = "medium";
+            } else {
+                recommendation = "✅ Perfect weather for your trip!";
+                recClass = "good";
+            }
+
+            resultDiv.innerHTML = `
+                <h3>Weather in ${data.name}</h3>
+                <p>🌡 Temperature: <b>${temp}°C</b></p>
+                <p>🌥 Condition: ${desc}</p>
+                <p>💧 Humidity: ${humidity}%</p>
+                <p>🌬 Wind: ${wind} m/s</p>
+                <p class="${recClass}">${recommendation}</p>
+            `;
+            resultDiv.classList.remove("hidden");
+        })
+        .catch(err => {
+            console.error("Fetch error:", err);
+            resultDiv.innerHTML = `<p>⚠️ Error fetching weather. Check internet or API key.</p>`;
+            resultDiv.classList.remove("hidden");
+        });
+});
+</script>

@@ -1,0 +1,126 @@
+<!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">NATIONAL PARKS</h1>
+      <p class="hero-subtitle">
+        Nestled in Jharkhand’s lush forests, Hazaribagh National Park is a haven for leopards, 
+        sambar, wild boars, and serene lakes — a perfect escape into nature’s heart.
+      </p>
+      <a href="#" class="hero-btn">Read More <span>&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- WHY VISIT -->
+<section class="why-visit">
+  <h2 class="section-heading">Why Visit Jharkhand?</h2>
+  <div class="why-visit__grid">
+    <article class="why-visit__item fade-on-scroll">
+      <img src="/assets/hazaribagh.png" alt="Wildlife Adventures" class="why-visit__icon"/>
+      <h3 class="why-visit__title">Wildlife</h3>
+      <p class="why-visit__text">Safaris through tiger reserves, Dalma’s elephants, and exotic bird sanctuaries.</p>
+    </article>
+    <article class="why-visit__item fade-on-scroll delay-1">
+      <img src="/assets/netarhat.png" alt="Mountain Adventures" class="why-visit__icon"/>
+      <h3 class="why-visit__title">Mountains</h3>
+      <p class="why-visit__text">Trek lofty Parasnath Hills and unwind at Netarhat’s sunset points.</p>
+    </article>
+    <article class="why-visit__item fade-on-scroll delay-2">
+      <img src="/assets/hundru.png" alt="Waterfalls" class="why-visit__icon"/>
+      <h3 class="why-visit__title">Waterfalls</h3>
+      <p class="why-visit__text">Hundru and Dassam with captivating cascades and cool sprays.</p>
+    </article>
+    <article class="why-visit__item fade-on-scroll delay-3">
+      <img src="/assets/tribal.png" alt="Cultural Tours" class="why-visit__icon"/>
+      <h3 class="why-visit__title">Culture</h3>
+      <p class="why-visit__text">Experience tribal festivals, local cuisine, and the rhythm of heritage.</p>
+    </article>
+  </div>
+</section>
+
+<!-- Featured Destionations  -->
+<section class="featured-destinations">
+  <h2 class="section-heading">Popular Destinations</h2>
+  <div class="featured-destinations__grid">
+    <div class="destination-card fade-on-scroll">
+      <img src="/assets/netarhat.png" alt="Netarhat Hills">
+      <div class="destination-card__overlay"><h3>Netarhat</h3></div>
+    </div>
+    <div class="destination-card fade-on-scroll delay-1">
+      <img src="/assets/parasnath.png" alt="Parasnath Hills">
+      <div class="destination-card__overlay"><h3>Parasnath Hills</h3></div>
+    </div>
+    <div class="destination-card fade-on-scroll delay-2">
+      <img src="/assets/hundru.png" alt="Hundru Falls">
+      <div class="destination-card__overlay"><h3>Hundru Falls</h3></div>
+    </div>
+    <div class="destination-card fade-on-scroll delay-3">
+      <img src="/assets/dalma.png" alt="Dalma Sanctuary">
+      <div class="destination-card__overlay"><h3>Dalma Sanctuary</h3></div>
+    </div>
+  </div>
+  <a href="/destinations/popular-destinations" class="link-see-more">See All Destinations →</a>
+</section>
+
+<!-- Map Your Journey  -->
+
+  <section class="journey hidden">
+    <div class="journey-container">
+      <div class="journey-text">
+        <h1 class="fade-item">MAP YOUR JHARKHAND<br>JOURNEY</h1>
+        <p class="subtext fade-item delay-1">Are you ready to explore Jharkhand</p>
+        <p class="fade-item delay-2">
+          Our interactive map will help you plan the perfect trip from A-Z!  
+          Discover the best sights, activities, and restaurants along your personalized route with just a few clicks.
+        </p>
+        <a href="#" class="btn fade-item delay-3">
+          MAP YOUR DREAM TRIP NOW!
+          <span class="redirectingarrow">→</span>
+        </a>
+      </div>
+
+      <div class="journey-image fade-item delay-4">
+        <img src="/assets/map.png" alt="Map of Jharkhand">
+      </div>
+    </div>
+  </section>
+
+<!-- Itineraries section  -->
+<section class="itinerary">
+  <div class="itinerary-container">
+    <div class="iti-text">
+      <p class="subText"> ITINERARIES</p>
+      <p class="subText2">-Plan Your Itineraries-</p>
+    </div>
+    <div class="itinerary-btn">
+      <a href="#" class="iti-btn">Plan Now </a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Script file -->
+  <script> 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      entry.target.classList.remove('hidden');
+      observer.unobserve(entry.target); // trigger once
+    }
+    });
+    }, { threshold: 0.2 });
+    // Observe the journey section
+    document.querySelectorAll('.journey').forEach(section => observer.observe(section));
+
+  // Fade-in animation on scroll
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.2 });
+
+  document.querySelectorAll('.fade-on-scroll').forEach(el => fadeObserver.observe(el));
+</script>

@@ -1,0 +1,111 @@
+<section class="popular-hero">
+  <div class="popular-hero-content">
+    <h1 class="popular-title">Popular Destinations</h1>
+    <p class="popular-subtitle">
+      Jharkhand’s most breathtaking places — from lush waterfalls to sacred hills, bustling towns to serene wildlife parks. 
+      Explore what travelers love most.
+    </p>
+  </div>
+</section>
+
+<!-- Filter Tabs -->
+<section class="popular-filters">
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="nature">Nature</button>
+    <button class="filter-btn" data-filter="culture">Culture</button>
+    <button class="filter-btn" data-filter="adventure">Adventure</button>
+  </div>
+</section>
+
+<!-- Destinations Grid -->
+<section class="popular-destinations">
+  <div class="destinations-grid">
+
+    <!-- Nature Cards -->
+    <div class="destination-card nature hidden-popular">
+      <img src="/assets/hundru.png" alt="Hundru Waterfall">
+      <div class="destination-overlay">
+        <h3>Hundru Falls</h3>
+        <p>Majestic cascades tumbling down rugged cliffs.</p>
+      </div>
+    </div>
+
+    <div class="destination-card nature hidden-popular">
+      <img src="/assets/netarhat.png" alt="Netarhat Hills">
+      <div class="destination-overlay">
+        <h3>Netarhat</h3>
+        <p>The Queen of Chotanagpur Plateau.</p>
+      </div>
+    </div>
+
+    <div class="destination-card adventure hidden-popular">
+      <img src="/assets/parasnath.png" alt="Parasnath Hills">
+      <div class="destination-overlay">
+        <h3>Parasnath Hills</h3>
+        <p>A trek that blends spirituality with adventure.</p>
+      </div>
+    </div>
+
+    <div class="destination-card culture hidden-popular">
+      <img src="/assets/ranchi-museum.png" alt="Ranchi Museum">
+      <div class="destination-overlay">
+        <h3>Ranchi Museum</h3>
+        <p>Artifacts, heritage, and the tribal history of Jharkhand.</p>
+      </div>
+    </div>
+
+    <div class="destination-card culture hidden-popular">
+      <img src="/assets/tribal.png" alt="Tribal Festival">
+      <div class="destination-overlay">
+        <h3>Tribal Festivals</h3>
+        <p>Colorful celebrations and local traditions.</p>
+      </div>
+    </div>
+
+    <div class="destination-card adventure hidden-popular">
+      <img src="/assets/dalma.png" alt="Dalma Wildlife Sanctuary">
+      <div class="destination-overlay">
+        <h3>Dalma Wildlife Sanctuary</h3>
+        <p>Wild elephants and serene jungle trails.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for animations
+  const popularObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show-popular');
+        popularObserver.unobserve(entry.target);
+      }
+    })
+  },{threshold:.2});
+
+  document.querySelectorAll('.hidden-popular')
+    .forEach(el => popularObserver.observe(el));
+
+  // Filtering
+  const buttons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".destination-card");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelector(".filter-btn.active").classList.remove("active");
+      btn.classList.add("active");
+
+      let filter = btn.dataset.filter;
+
+      cards.forEach(card => {
+        if(filter === "all" || card.classList.contains(filter)){
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+</script>

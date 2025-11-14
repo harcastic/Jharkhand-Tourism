@@ -1,0 +1,107 @@
+/* ========== POPULAR DESTINATIONS PAGE ========== */
+
+.popular-hero {
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+              url("/assets/landingimg.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 8rem 2rem;
+}
+
+.popular-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.popular-subtitle {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Filter Buttons */
+.popular-filters {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.filter-buttons {
+  display: inline-flex;
+  gap: 1rem;
+}
+
+.filter-btn {
+  padding: .6rem 1.2rem;
+  border: 2px solid #0a6634;
+  background: none;
+  color: #0a6634;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #0a6634;
+  color: #fff;
+}
+
+/* Cards Grid */
+.popular-destinations {
+  padding: 2rem;
+
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+}
+
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.destination-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: fill;
+  /* display: block; */
+  transition: transform .3s;
+}
+
+.destination-card:hover img {
+  transform: scale(1.08);
+}
+
+.destination-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+  color: #fff;
+  padding: 1rem;
+  transition: all .3s;
+}
+
+/* Animations */
+.hidden-popular {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+
+}
+
+.show-popular {
+
+  opacity: 1;
+  transform: translateY(0);
+}

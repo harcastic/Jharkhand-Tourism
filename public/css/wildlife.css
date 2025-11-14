@@ -1,0 +1,180 @@
+/* ========== WILDLIFE PAGE ========== */
+
+/* HERO SECTION */
+.wildlife-hero {
+  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), 
+              url("/assets/landingimg.jpg") center/cover no-repeat fixed;
+  text-align: center;
+  color: #fff;
+  padding: 10rem 2rem;
+}
+
+.wildlife-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+.wildlife-subtitle {
+  font-size: 1.4rem;
+  margin: 1rem auto 2rem auto;
+  max-width: 700px;
+}
+.wildlife-cta-btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: #17421f;
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.wildlife-cta-btn:hover { background: #256831; }
+
+/* TIMELINE */
+.wildlife-timeline {
+  padding: 5rem 2rem;
+  background: #fbfaf7;
+}
+.wildlife-timeline-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+.wildlife-timeline-container {
+  display: grid;
+  gap: 2rem;
+}
+.wildlife-timeline-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  transition: transform .3s;
+}
+.wildlife-timeline-item:hover { transform: translateY(-8px); }
+.wildlife-timeline-item img {
+  flex: 1 1 250px;
+  max-width: 350px;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+.wildlife-timeline-text {
+  flex: 2 1 300px;
+}
+
+/* FLIP CARDS */
+.wildlife-cards {
+  padding: 5rem 2rem;
+}
+.wildlife-cards-header {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+.wildlife-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.wildlife-card {
+  perspective: 1000px;
+  position: relative;
+  height: 400px;
+}
+.wildlife-card-front,
+.wildlife-card-back {
+  position: absolute;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  transition: transform .8s;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+.wildlife-card-front img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.wildlife-card-front h3 {
+  margin-top: 1rem;
+  color: #17421f;
+}
+.wildlife-card-back {
+  background: #17421f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transform: rotateY(180deg);
+}
+.wildlife-card:hover .wildlife-card-front {
+  transform: rotateY(180deg);
+}
+.wildlife-card:hover .wildlife-card-back {
+  transform: rotateY(360deg);
+}
+
+/* CTA SECTION */
+.wildlife-cta {
+  background: linear-gradient(to right, #17421f, #37723d);
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #fff;
+}
+.wildlife-cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.wildlife-cta-button {
+  background: #fff;
+  color: #17421f;
+  line-height: 3.9rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.wildlife-cta-button:hover { background: #f3f3f3; }
+
+/* SCROLL ANIMATIONS */
+.fade-wildlife {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+}
+.show-wildlife {
+  opacity: 1;
+  transform: translateY(0);
+}
+.delay-w1 { transition-delay: .2s; }
+.delay-w2 { transition-delay: .4s; }
+
+/* ================= RESPONSIVENESS ================= */
+@media (max-width: 1024px) {
+  .wildlife-title { font-size: 2.8rem; }
+  .wildlife-timeline-item { flex-direction: column; text-align: center; }
+}
+@media (max-width: 768px) {
+  .wildlife-title { font-size: 2.2rem; }
+  .wildlife-subtitle { font-size: 1.1rem; }
+  .wildlife-cards-grid { grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); }
+  .wildlife-card { height: 250px; }
+}
+@media (max-width: 480px) {
+  .wildlife-hero { padding: 6rem 1.2rem; }
+  .wildlife-title { font-size: 1.8rem; }
+  .wildlife-subtitle { font-size: 1rem; }
+  .wildlife-cta-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+  .wildlife-cards-grid { grid-template-columns: 1fr; }
+  .wildlife-card { height: 220px; }
+}
