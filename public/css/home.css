@@ -308,58 +308,693 @@ body {
 }
 
 
-/* ITINERARIES */
-/* ITINERARY SECTION */
+/* ============ ITINERARY SECTION (ENHANCED) ============ */
 .itinerary {
-  padding: 60px 20px;
-  background: #f9f9f9;
-  text-align: center; /* easy centering for text/buttons */
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .itinerary-container {
-  max-width: 800px;
-  margin: 0 auto;              /* centers container */
-  display: flex;
-  flex-direction: column;      /* stack heading/text/button vertically */
-  align-items: center;         /* horizontal centering */
-  justify-content: center;     /* vertical alignment when needed */
-  gap: 20px;                   /* spacing between elements */
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.iti-text .subText {
-  font-size: 2.4rem;
+.itinerary-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.itinerary-text-box {
+  padding: 20px 0;
+}
+
+.itinerary-label {
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #000;
-  margin-bottom: 0.3rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  display: block;
 }
 
-.iti-text .subText2 {
-  font-size: 1.25rem;
-  /* font-style: italic; */
-  font-weight: 600;
-  color: #666;
+.itinerary-title {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
-.itinerary-btn {
-  margin-top: 20px;
+.itinerary-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-align: left;
 }
 
-.iti-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #000000;
-  color: #fff;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: 4px;
+.itinerary-features {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.itinerary-features li {
+  padding: 12px 0;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1);
   transition: all 0.3s ease;
 }
 
-.iti-btn:hover {
-  background: #ffffff;
-  color: #000;
-  border: 1px solid black;
+.itinerary-features li:last-child {
+  border-bottom: none;
 }
+
+.itinerary-features li:hover {
+  padding-left: 10px;
+  color: #333;
+  font-weight: 600;
+}
+
+.itinerary-button-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px 40px;
+  background: #f5f5f5;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  min-height: 300px;
+}
+
+.itinerary-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: #333;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+}
+
+.itinerary-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background: #555;
+}
+
+.btn-arrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.itinerary-btn-primary:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+.itinerary-subtext {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ============ RESPONSIVE ITINERARY ============ */
+@media (max-width: 1024px) {
+  .itinerary-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .itinerary-button-box {
+    min-height: 250px;
+    padding: 50px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .itinerary {
+    padding: 80px 20px;
+    min-height: auto;
+  }
+
+  .itinerary-title {
+    font-size: 1.8rem;
+  }
+
+  .itinerary-description {
+    font-size: 0.95rem;
+  }
+
+  .itinerary-button-box {
+    min-height: 200px;
+    padding: 40px 25px;
+    gap: 15px;
+  }
+
+  .itinerary-btn-primary {
+    padding: 14px 35px;
+    font-size: 1rem;
+  }
+}
+
+/* ============ BEST TIME TO VISIT ============ */
+.best-time {
+  padding: 80px 20px;
+  background: #fafafa;
+}
+
+.seasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.season-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+}
+
+.season-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.season-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.season-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #2c3e50;
+}
+
+.season-description {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.season-highlights {
+  list-style: none;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.season-highlights li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.season-highlights li:last-child {
+  border-bottom: none;
+}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials {
+  padding: 80px 20px;
+  background: white;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  border-left: 3px solid #666;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.stars {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.testimonial-author {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.testimonial-author h4 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.testimonial-author p {
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* ============ PACKAGE DEALS ============ */
+.package-deals {
+  padding: 80px 20px;
+  background: #f5f5f5;
+  color: #2c3e50;
+}
+
+.package-deals .section-heading {
+  color: #2c3e50;
+}
+
+.deals-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.package-card {
+  background: white;
+  color: #2c3e50;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.package-header {
+  background: #2c3e50;
+  color: white;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.package-header h3 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.price-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.package-body {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-highlight {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.package-includes {
+  list-style: none;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.package-includes li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.package-includes li:last-child {
+  border-bottom: none;
+}
+
+.carbon-impact {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.package-btn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.package-btn:hover {
+  background: #555;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============ WHY CHOOSE OUR PLANNER ============ */
+.why-choose {
+  padding: 80px 20px;
+  background: white;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.feature-box {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-top: 3px solid transparent;
+  border: 1px solid #e8e8e8;
+}
+
+.feature-box:hover {
+  border-top-color: #333;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.feature-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.feature-box p {
+  color: #666;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ============ TRAVEL TIPS ============ */
+.travel-tips {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.tips-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.tip-item {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.tip-item:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+}
+
+.tip-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #333;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.tip-item h4 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.tip-item p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ============ FAQ ============ */
+.faq {
+  padding: 80px 20px;
+  background: white;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.faq-toggle {
+  display: none;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2c3e50;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  color: #333;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  background: #f9f9f9;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-toggle:checked + .faq-question {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.faq-toggle:checked + .faq-question .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-toggle:checked ~ .faq-answer {
+  max-height: 300px;
+  padding: 20px;
+}
+
+/* ============ NEWSLETTER ============ */
+.newsletter {
+  padding: 80px 20px;
+  background: #f5f5f5;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.newsletter-content {
+  max-width: 600px;
+  margin: auto;
+}
+
+.newsletter-content h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.newsletter-content p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.newsletter-form button {
+  padding: 12px 30px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #555;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.form-note {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ============ STATISTICS ============ */
+.statistics {
+  padding: 80px 20px;
+  background: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.stat-box {
+  text-align: center;
+  padding: 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.stat-label {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ============ FADE-ON-SCROLL ============ */
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
 
 
 
@@ -436,6 +1071,93 @@ body {
   .btn {
     font-size: 0.8rem;
     padding: 10px 18px;
+  }
+
+  /* Best Time */
+  .seasons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Testimonials */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Packages */
+  .package-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  /* Features */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tips */
+  .tips-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Newsletter */
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .newsletter-content h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Stats */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* Itinerary Mobile */
+  .itinerary {
+    padding: 60px 15px;
+    min-height: auto;
+  }
+
+  .itinerary-label {
+    font-size: 0.85rem;
+  }
+
+  .itinerary-title {
+    font-size: 1.6rem;
+  }
+
+  .itinerary-description {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .itinerary-features li {
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .itinerary-button-box {
+    min-height: 180px;
+    padding: 30px 20px;
+    gap: 12px;
+  }
+
+  .itinerary-btn-primary {
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .itinerary-subtext {
+    font-size: 0.85rem;
   }
 }
 

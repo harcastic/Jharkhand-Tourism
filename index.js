@@ -23,6 +23,21 @@ app.get('/', (req, res) => {
 });
 
 //About tourism
+app.get('/about/our-story.html', (req, res) => {
+    res.render('aboutTourism/ourStory', { title: 'Our Story' });
+});
+app.get('/about/mission-vision.html', (req, res) => {
+    res.render('aboutTourism/missionVision', { title: 'Mission & Vision' });
+});
+app.get('/about/why-choose-us.html', (req, res) => {
+    res.render('aboutTourism/whyChooseUs', { title: 'Why Choose Us' });
+});
+app.get('/about/our-team.html', (req, res) => {
+    res.render('aboutTourism/ourTeam', { title: 'Our Team' });
+});
+app.get('/about/testimonials.html', (req, res) => {
+    res.render('aboutTourism/testimonials', { title: 'Testimonials' });
+});
 
 
 //plan Your Trip

@@ -1,0 +1,975 @@
+/* ============ ABOUT PAGES STYLING ============ */
+
+/* Import Professional Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* General Page Structure */
+.about-page {
+  min-height: 100vh;
+  padding: 140px 20px 100px 20px;
+  background: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1a1a1a;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 100px;
+  animation: fadeInDown 0.8s ease;
+}
+
+.page-header h1 {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  font-weight: 900;
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 24px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.page-header p {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+}
+
+/* ============ OUR STORY PAGE ============ */
+.story-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 100px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.story-content {
+  padding: 0;
+}
+
+.story-content h2 {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+.story-content p {
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: #3a3a3a;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  text-align: justify;
+  letter-spacing: 0.2px;
+}
+
+.story-image {
+  width: 100%;
+  height: 450px;
+  background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 5.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.timeline {
+  margin-top: 100px;
+  padding: 80px 60px;
+  background: #f8f9fb;
+  border-radius: 16px;
+  border: 1px solid #e8ecf1;
+}
+
+.timeline h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 80px;
+  letter-spacing: -0.3px;
+}
+
+.timeline-events {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-events::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: #333;
+}
+
+.timeline-event {
+  margin-bottom: 60px;
+  width: 45%;
+}
+
+.timeline-event:nth-child(odd) {
+  margin-left: 0;
+  text-align: right;
+  padding-right: 50px;
+}
+
+.timeline-event:nth-child(even) {
+  margin-left: auto;
+  text-align: left;
+  padding-left: 50px;
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 3px solid #333;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+  transition: all 0.3s ease;
+}
+
+.timeline-event:hover .timeline-dot {
+  width: 28px;
+  height: 28px;
+  background: #333;
+  border-color: #333;
+}
+
+.timeline-event:nth-child(odd) .timeline-dot {
+  left: calc(50% + 47px);
+}
+
+.timeline-event:nth-child(even) .timeline-dot {
+  left: calc(50% - 47px);
+}
+
+.timeline-event h3 {
+  color: #0a0e27;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.timeline-event p {
+  color: #555;
+  font-size: 0.9875rem;
+  margin-bottom: 8px;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+.timeline-year {
+  color: #333;
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============ MISSION & VISION PAGE ============ */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 100px;
+}
+
+.mission-card, .vision-card {
+  padding: 60px;
+  background: #ffffff;
+  border: 2px solid #e8ecf1;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.8s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.mission-card:hover, .vision-card:hover {
+  background: #fafbfd;
+  border-color: #333;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.mission-card h2, .vision-card h2 {
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 28px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.mission-card p, .vision-card p {
+  font-size: 1.0625rem;
+  color: #3a3a3a;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  text-align: justify;
+  letter-spacing: 0.2px;
+  font-weight: 400;
+}
+
+.values-section {
+  margin-top: 100px;
+}
+
+.values-section h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 70px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.value-box {
+  padding: 50px 40px;
+  background: #ffffff;
+  border: 2px solid #e8ecf1;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.8s ease;
+}
+
+.value-box:hover {
+  border-color: #333;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-10px);
+  background: #fafbfd;
+}
+
+.value-icon {
+  font-size: 4rem;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.value-box h3 {
+  font-size: 1.375rem;
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.value-box p {
+  color: #555;
+  font-size: 0.9875rem;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+/* ============ WHY CHOOSE US PAGE ============ */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.benefit-card {
+  padding: 50px 40px;
+  background: #ffffff;
+  border: 2px solid #e8ecf1;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.benefit-card:hover {
+  background: #fafbfd;
+  border-color: #333;
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+.benefit-icon {
+  font-size: 3.5rem;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.benefit-card h3 {
+  font-size: 1.25rem;
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.benefit-card p {
+  color: #555;
+  font-size: 0.9875rem;
+  line-height: 1.7;
+  letter-spacing: 0.2px;
+}
+
+.features-section {
+  background: #f8f9fb;
+  padding: 80px 60px;
+  border-radius: 16px;
+  margin-top: 80px;
+  border: 1px solid #e8ecf1;
+}
+
+.features-section h2 {
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 60px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.feature-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.feature-check {
+  width: 28px;
+  height: 28px;
+  background: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+.feature-item h4 {
+  color: #0a0e27;
+  font-size: 1.0625rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.feature-item p {
+  color: #555;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+/* ============ OUR TEAM PAGE ============ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 50px;
+  margin-bottom: 80px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.team-card {
+  background: #ffffff;
+  border: 2px solid #e8ecf1;
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.team-card:hover {
+  transform: translateY(-16px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-color: #333;
+}
+
+.team-image {
+  width: 100%;
+  height: 340px;
+  background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5.5rem;
+  overflow: hidden;
+}
+
+.team-info {
+  padding: 50px 32px;
+}
+
+.team-name {
+  font-size: 1.375rem;
+  font-family: 'Poppins', sans-serif;
+  color: #0a0e27;
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.team-role {
+  font-size: 0.9875rem;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.team-bio {
+  font-size: 0.9375rem;
+  color: #3a3a3a;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  letter-spacing: 0.2px;
+}
+
+.team-contact {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding-top: 24px;
+  border-top: 1px solid #e8ecf1;
+}
+
+.team-contact a {
+  width: 44px;
+  height: 44px;
+  background: #f8f9fb;
+  border: 2px solid #e8ecf1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.team-contact a:hover {
+  background: #333;
+  color: white;
+  border-color: #333;
+  transform: translateY(-4px);
+}
+
+/* ============ TESTIMONIALS PAGE ============ */
+.testimonials-section {
+  margin-bottom: 80px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 40px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.testimonial-full-card {
+  background: #ffffff;
+  padding: 48px;
+  border-radius: 16px;
+  border-left: 5px solid #333;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s ease;
+  border: 2px solid #e8ecf1;
+  border-left: 5px solid #333;
+}
+
+.testimonial-full-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-stars {
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+  font-weight: 600;
+}
+
+.testimonial-text {
+  font-size: 1.0625rem;
+  color: #3a3a3a;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid #e8ecf1;
+}
+
+.author-image {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.author-info h4 {
+  color: #0a0e27;
+  font-size: 1.0625rem;
+  margin: 0 0 6px 0;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: -0.2px;
+}
+
+.author-info p {
+  color: #888;
+  font-size: 0.875rem;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 1024px) {
+  .about-page {
+    padding: 120px 20px 80px 20px;
+  }
+
+  .page-header {
+    margin-bottom: 80px;
+  }
+
+  .page-header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  .story-section {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .timeline-events::before {
+    left: 0;
+  }
+
+  .timeline-event,
+  .timeline-event:nth-child(odd),
+  .timeline-event:nth-child(even) {
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 0;
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .timeline-dot,
+  .timeline-event:nth-child(odd) .timeline-dot,
+  .timeline-event:nth-child(even) .timeline-dot {
+    left: 0;
+    transform: translateX(-50%);
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding: 100px 16px 60px 16px;
+  }
+
+  .page-header {
+    margin-bottom: 60px;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .page-header p {
+    font-size: 1rem;
+  }
+
+  .story-section {
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .story-content {
+    padding: 0;
+  }
+
+  .story-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+
+  .story-content p {
+    font-size: 0.9875rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .story-image {
+    height: 320px;
+    font-size: 4rem;
+  }
+
+  .timeline {
+    padding: 60px 40px;
+  }
+
+  .timeline h2 {
+    font-size: 1.8rem;
+    margin-bottom: 60px;
+  }
+
+  .timeline-event {
+    margin-bottom: 50px;
+  }
+
+  .mission-card, .vision-card {
+    padding: 40px 32px;
+  }
+
+  .mission-card h2, .vision-card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .mission-card p, .vision-card p {
+    font-size: 0.9875rem;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .value-box {
+    padding: 40px 30px;
+  }
+
+  .benefit-card {
+    padding: 40px 32px;
+  }
+
+  .features-section {
+    padding: 60px 40px;
+  }
+
+  .features-list {
+    max-width: 100%;
+  }
+
+  .team-grid {
+    gap: 30px;
+  }
+
+  .team-image {
+    height: 280px;
+    font-size: 4rem;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .testimonial-full-card {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-page {
+    padding: 80px 12px 40px 12px;
+  }
+
+  .page-header {
+    margin-bottom: 50px;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .page-header p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .story-section {
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .story-content h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .story-content p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .story-image {
+    height: 240px;
+    font-size: 3rem;
+  }
+
+  .timeline {
+    padding: 40px 24px;
+    margin-top: 60px;
+  }
+
+  .timeline h2 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+
+  .timeline-event {
+    padding-left: 50px;
+    margin-bottom: 40px;
+  }
+
+  .timeline-event h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .timeline-event p {
+    font-size: 0.875rem;
+  }
+
+  .mission-vision-grid {
+    gap: 30px;
+  }
+
+  .mission-card, .vision-card {
+    padding: 32px 24px;
+  }
+
+  .mission-card h2, .vision-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .mission-card p, .vision-card p {
+    font-size: 0.9375rem;
+    margin-bottom: 16px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .value-box {
+    padding: 32px 20px;
+  }
+
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+
+  .value-box h3 {
+    font-size: 1.125rem;
+    margin-bottom: 12px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .benefit-card {
+    padding: 32px 24px;
+  }
+
+  .benefit-icon {
+    font-size: 2.8rem;
+    margin-bottom: 16px;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 12px;
+  }
+
+  .benefit-card p {
+    font-size: 0.875rem;
+  }
+
+  .features-section {
+    padding: 40px 24px;
+    margin-top: 60px;
+  }
+
+  .features-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .team-image {
+    height: 220px;
+    font-size: 3rem;
+  }
+
+  .team-info {
+    padding: 32px 20px;
+  }
+
+  .team-name {
+    font-size: 1.125rem;
+    margin-bottom: 8px;
+  }
+
+  .team-role {
+    font-size: 0.8125rem;
+    margin-bottom: 16px;
+  }
+
+  .team-bio {
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+  }
+
+  .testimonials-grid {
+    gap: 20px;
+  }
+
+  .testimonial-full-card {
+    padding: 32px 24px;
+  }
+
+  .testimonial-text {
+    font-size: 0.9375rem;
+    margin-bottom: 20px;
+    line-height: 1.7;
+  }
+
+  .author-image {
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+  }
+
+  .author-info h4 {
+    font-size: 0.9375rem;
+    margin-bottom: 4px;
+  }
+
+  .author-info p {
+    font-size: 0.8125rem;
+  }
+}
