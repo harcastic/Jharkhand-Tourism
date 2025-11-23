@@ -6,8 +6,8 @@
 /* General Page Structure */
 .about-page {
   min-height: 100vh;
-  padding: 140px 20px 100px 20px;
-  background: #ffffff;
+  padding: 80px 20px 50px 20px;
+  background: linear-gradient(180deg, #fafbfc 0%, #f5f6f8 100%);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: #1a1a1a;
 }
@@ -19,37 +19,42 @@
 
 .page-header {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 45px;
   animation: fadeInDown 0.8s ease;
 }
 
 .page-header h1 {
-  font-size: clamp(2.5rem, 7vw, 4rem);
-  font-weight: 900;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 24px;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  text-transform: capitalize;
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a5568 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .page-header p {
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #555;
-  max-width: 700px;
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+  font-weight: 400;
+  color: #666;
+  max-width: 650px;
   margin: 0 auto;
-  line-height: 1.7;
-  letter-spacing: 0.3px;
+  line-height: 1.55;
+  letter-spacing: 0.1px;
 }
 
 /* ============ OUR STORY PAGE ============ */
 .story-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 35px;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 55px;
   animation: fadeInUp 0.8s ease;
 }
 
@@ -58,54 +63,55 @@
 }
 
 .story-content h2 {
-  font-size: clamp(1.8rem, 5vw, 2.8rem);
-  font-weight: 800;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 32px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
   line-height: 1.2;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.1px;
 }
 
 .story-content p {
-  font-size: 1.0625rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.88rem);
   font-weight: 400;
-  color: #3a3a3a;
-  line-height: 1.8;
-  margin-bottom: 28px;
-  text-align: justify;
-  letter-spacing: 0.2px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  text-align: left;
+  letter-spacing: 0.1px;
 }
 
 .story-image {
   width: 100%;
-  height: 450px;
-  background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
-  border-radius: 16px;
+  height: 300px;
+  background: linear-gradient(135deg, #f5f6f7 0%, #ececf0 100%);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #999;
-  font-size: 5.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  font-size: 3.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .timeline {
-  margin-top: 100px;
-  padding: 80px 60px;
-  background: #f8f9fb;
-  border-radius: 16px;
-  border: 1px solid #e8ecf1;
+  margin-top: 55px;
+  padding: 45px 35px;
+  background: linear-gradient(135deg, #f8fafb 0%, #f5f3ff 100%);
+  border-radius: 12px;
+  border: 1px solid #e8e6f0;
 }
 
 .timeline h2 {
   text-align: center;
-  font-size: clamp(2rem, 5vw, 2.6rem);
-  font-weight: 800;
+  font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+  font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 80px;
-  letter-spacing: -0.3px;
+  color: #1a1a1a;
+  margin-bottom: 45px;
+  letter-spacing: -0.1px;
+  text-transform: capitalize;
 }
 
 .timeline-events {
@@ -124,33 +130,34 @@
 }
 
 .timeline-event {
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   width: 45%;
 }
 
 .timeline-event:nth-child(odd) {
   margin-left: 0;
   text-align: right;
-  padding-right: 50px;
+  padding-right: 40px;
 }
 
 .timeline-event:nth-child(even) {
   margin-left: auto;
   text-align: left;
-  padding-left: 50px;
+  padding-left: 40px;
 }
 
 .timeline-dot {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #ffffff;
-  border: 3px solid #333;
+  width: 16px;
+  height: 16px;
+  background: #5b7dd4;
+  border: 3px solid #ffffff;
   border-radius: 50%;
   left: 50%;
   transform: translateX(-50%);
   margin-top: 0;
   transition: all 0.3s ease;
+  box-shadow: 0 0 0 2px #5b7dd4;
 }
 
 .timeline-event:hover .timeline-dot {
@@ -169,205 +176,232 @@
 }
 
 .timeline-event h3 {
-  color: #0a0e27;
-  font-size: 1.25rem;
-  margin-bottom: 12px;
+  color: #1a1a1a;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  margin-bottom: 8px;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px;
 }
 
 .timeline-event p {
   color: #555;
-  font-size: 0.9875rem;
-  margin-bottom: 8px;
+  font-size: clamp(0.8rem, 1.2vw, 0.88rem);
+  margin-bottom: 6px;
   line-height: 1.6;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
+  font-weight: 400;
 }
 
 .timeline-year {
-  color: #333;
+  color: #888;
   font-weight: 700;
-  font-size: 0.875rem;
-  margin-bottom: 12px;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ============ MISSION & VISION PAGE ============ */
 .mission-vision-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  margin-bottom: 100px;
+  gap: 30px;
+  margin-bottom: 55px;
 }
 
 .mission-card, .vision-card {
-  padding: 60px;
+  padding: 40px;
   background: #ffffff;
-  border: 2px solid #e8ecf1;
-  border-radius: 16px;
-  transition: all 0.4s ease;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition: all 0.3s ease;
   animation: fadeInUp 0.8s ease;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 
 .mission-card:hover, .vision-card:hover {
-  background: #fafbfd;
-  border-color: #333;
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%);
+  border-color: #5b7dd4;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(91, 125, 212, 0.1);
 }
 
 .mission-card h2, .vision-card h2 {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 2.8vw, 1.7rem);
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 28px;
-  font-weight: 800;
-  letter-spacing: -0.3px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  text-transform: capitalize;
 }
 
 .mission-card p, .vision-card p {
-  font-size: 1.0625rem;
-  color: #3a3a3a;
-  line-height: 1.8;
-  margin-bottom: 24px;
-  text-align: justify;
-  letter-spacing: 0.2px;
+  font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  text-align: left;
+  letter-spacing: 0.1px;
   font-weight: 400;
 }
 
 .values-section {
-  margin-top: 100px;
+  margin-top: 55px;
 }
 
 .values-section h2 {
   text-align: center;
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: clamp(1.3rem, 3.5vw, 1.9rem);
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 70px;
-  font-weight: 800;
-  letter-spacing: -0.3px;
+  color: #1a1a1a;
+  margin-bottom: 45px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  text-transform: capitalize;
 }
 
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
 }
 
 .value-box {
-  padding: 50px 40px;
+  padding: 32px 26px;
   background: #ffffff;
-  border: 2px solid #e8ecf1;
-  border-radius: 16px;
+  border: 1px solid #dce4f0;
+  border-radius: 12px;
   text-align: center;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   animation: fadeInUp 0.8s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #5b7dd4, #a78bfa);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .value-box:hover {
-  border-color: #333;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-  transform: translateY(-10px);
-  background: #fafbfd;
+  border-color: #5b7dd4;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(91, 125, 212, 0.12);
+  background: linear-gradient(135deg, #f8faff 0%, #faf8ff 100%);
+}
+
+.value-box:hover::before {
+  transform: scaleX(1);
 }
 
 .value-icon {
-  font-size: 4rem;
-  margin-bottom: 24px;
+  font-size: 3rem;
+  margin-bottom: 16px;
   display: block;
 }
 
 .value-box h3 {
-  font-size: 1.375rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 16px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
   font-weight: 700;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px;
 }
 
 .value-box p {
   color: #555;
-  font-size: 0.9875rem;
-  line-height: 1.7;
-  letter-spacing: 0.2px;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  line-height: 1.55;
+  letter-spacing: 0.1px;
+  font-weight: 400;
 }
 
 /* ============ WHY CHOOSE US PAGE ============ */
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  margin-bottom: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-bottom: 55px;
   animation: fadeInUp 0.8s ease;
 }
 
 .benefit-card {
-  padding: 50px 40px;
+  padding: 32px 26px;
   background: #ffffff;
-  border: 2px solid #e8ecf1;
-  border-radius: 16px;
-  transition: all 0.4s ease;
+  border: 1px solid #e8e6f0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  position: relative;
 }
 
 .benefit-card:hover {
-  background: #fafbfd;
-  border-color: #333;
-  transform: translateY(-12px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #f0f8ff 0%, #fff0f8 100%);
+  border-color: #8b7dd4;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(139, 125, 212, 0.12);
 }
 
 .benefit-icon {
-  font-size: 3.5rem;
-  margin-bottom: 24px;
+  font-size: 2.5rem;
+  margin-bottom: 16px;
   display: block;
 }
 
 .benefit-card h3 {
-  font-size: 1.25rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 16px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
   font-weight: 700;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px;
 }
 
 .benefit-card p {
   color: #555;
-  font-size: 0.9875rem;
-  line-height: 1.7;
-  letter-spacing: 0.2px;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  line-height: 1.55;
+  letter-spacing: 0.1px;
+  font-weight: 400;
 }
 
 .features-section {
-  background: #f8f9fb;
-  padding: 80px 60px;
-  border-radius: 16px;
-  margin-top: 80px;
-  border: 1px solid #e8ecf1;
+  background: linear-gradient(135deg, #f8f9fb 0%, #f3f0ff 100%);
+  padding: 45px 35px;
+  border-radius: 12px;
+  margin-top: 55px;
+  border: 1px solid #e8e6f0;
 }
 
 .features-section h2 {
   text-align: center;
-  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  font-size: clamp(1.3rem, 3.5vw, 1.9rem);
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 60px;
-  font-weight: 800;
-  letter-spacing: -0.3px;
+  color: #1a1a1a;
+  margin-bottom: 45px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  text-transform: capitalize;
 }
 
 .features-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  max-width: 900px;
+  gap: 30px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -393,86 +427,94 @@
 }
 
 .feature-item h4 {
-  color: #0a0e27;
-  font-size: 1.0625rem;
-  margin-bottom: 10px;
+  color: #1a1a1a;
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  margin-bottom: 8px;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px;
 }
 
 .feature-item p {
   color: #555;
-  font-size: 0.9375rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
   line-height: 1.6;
   margin: 0;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
+  font-weight: 400;
 }
 
 /* ============ OUR TEAM PAGE ============ */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 50px;
-  margin-bottom: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 55px;
   animation: fadeInUp 0.8s ease;
 }
 
 .team-card {
   background: #ffffff;
-  border: 2px solid #e8ecf1;
-  border-radius: 16px;
+  border: 1px solid #dce4f0;
+  border-radius: 12px;
   overflow: hidden;
   text-align: center;
-  transition: all 0.4s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  position: relative;
 }
 
 .team-card:hover {
-  transform: translateY(-16px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-  border-color: #333;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(91, 125, 212, 0.12);
+  border-color: #5b7dd4;
+}
+
+.team-card:hover .team-image {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
 }
 
 .team-image {
   width: 100%;
-  height: 340px;
-  background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
+  height: 240px;
+  background: linear-gradient(135deg, #f5f6f7 0%, #ececf0 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5.5rem;
+  font-size: 3.2rem;
   overflow: hidden;
 }
 
 .team-info {
-  padding: 50px 32px;
+  padding: 28px 20px;
 }
 
 .team-name {
-  font-size: 1.375rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   font-family: 'Poppins', sans-serif;
-  color: #0a0e27;
-  margin-bottom: 12px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
   font-weight: 700;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px;
 }
 
 .team-role {
-  font-size: 0.9875rem;
-  color: #555;
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-size: clamp(0.75rem, 1.4vw, 0.85rem);
+  color: #666;
+  font-weight: 700;
+  margin-bottom: 16px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .team-bio {
-  font-size: 0.9375rem;
-  color: #3a3a3a;
-  line-height: 1.7;
-  margin-bottom: 28px;
-  letter-spacing: 0.2px;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  color: #555;
+  line-height: 1.55;
+  margin-bottom: 20px;
+  letter-spacing: 0.1px;
+  font-weight: 400;
 }
 
 .team-contact {
@@ -507,84 +549,89 @@
 
 /* ============ TESTIMONIALS PAGE ============ */
 .testimonials-section {
-  margin-bottom: 80px;
+  margin-bottom: 55px;
 }
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
   animation: fadeInUp 0.8s ease;
 }
 
 .testimonial-full-card {
   background: #ffffff;
-  padding: 48px;
-  border-radius: 16px;
-  border-left: 5px solid #333;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  transition: all 0.4s ease;
-  border: 2px solid #e8ecf1;
-  border-left: 5px solid #333;
+  padding: 32px;
+  border-radius: 12px;
+  border-left: 4px solid #a78bfa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  border: 1px solid #e8e6f0;
+  border-left: 4px solid #a78bfa;
 }
 
 .testimonial-full-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(167, 139, 250, 0.15);
+  background: linear-gradient(135deg, #faf8ff 0%, #f8f9ff 100%);
 }
 
 .testimonial-stars {
-  font-size: 1.3rem;
-  color: #333;
-  margin-bottom: 20px;
-  letter-spacing: 4px;
-  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+  font-weight: 700;
 }
 
 .testimonial-text {
-  font-size: 1.0625rem;
-  color: #3a3a3a;
-  line-height: 1.8;
-  margin-bottom: 28px;
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
   font-style: italic;
   font-weight: 400;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
 }
 
 .testimonial-author {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding-top: 24px;
-  border-top: 1px solid #e8ecf1;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
 }
 
 .author-image {
-  width: 56px;
+  width: 48px;
   height: 56px;
   background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   flex-shrink: 0;
+  font-weight: 800;
+  color: #0a0e27;
+  border: 2px solid #e8ecf1;
 }
 
 .author-info h4 {
   color: #0a0e27;
-  font-size: 1.0625rem;
-  margin: 0 0 6px 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  margin: 0 0 4px 0;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.15px;
 }
 
 .author-info p {
   color: #888;
-  font-size: 0.875rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   margin: 0;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
+  font-weight: 600;
 }
 
 /* ============ ANIMATIONS ============ */
@@ -613,26 +660,26 @@
 /* ============ RESPONSIVE DESIGN ============ */
 @media (max-width: 1024px) {
   .about-page {
-    padding: 120px 20px 80px 20px;
+    padding: 100px 20px 60px 20px;
   }
 
   .page-header {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
 
   .page-header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
   }
 
   .story-section {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 50px;
   }
 
   .mission-vision-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 35px;
   }
 
   .timeline-events::before {
@@ -643,7 +690,7 @@
   .timeline-event:nth-child(odd),
   .timeline-event:nth-child(even) {
     width: 100%;
-    padding-left: 60px;
+    padding-left: 50px;
     padding-right: 0;
     text-align: left;
     margin-left: 0;
@@ -658,36 +705,36 @@
 
   .features-list {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 35px;
   }
 
   .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
   }
 }
 
 @media (max-width: 768px) {
   .about-page {
-    padding: 100px 16px 60px 16px;
+    padding: 80px 16px 50px 16px;
   }
 
   .page-header {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
 
   .page-header h1 {
-    font-size: 2rem;
-    margin-bottom: 16px;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
   }
 
   .page-header p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .story-section {
-    gap: 40px;
-    margin-bottom: 60px;
+    gap: 35px;
+    margin-bottom: 50px;
   }
 
   .story-content {
@@ -695,62 +742,62 @@
   }
 
   .story-content h2 {
-    font-size: 1.8rem;
-    margin-bottom: 24px;
-  }
-
-  .story-content p {
-    font-size: 0.9875rem;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-
-  .story-image {
-    height: 320px;
-    font-size: 4rem;
-  }
-
-  .timeline {
-    padding: 60px 40px;
-  }
-
-  .timeline h2 {
-    font-size: 1.8rem;
-    margin-bottom: 60px;
-  }
-
-  .timeline-event {
-    margin-bottom: 50px;
-  }
-
-  .mission-card, .vision-card {
-    padding: 40px 32px;
-  }
-
-  .mission-card h2, .vision-card h2 {
     font-size: 1.6rem;
     margin-bottom: 20px;
   }
 
+  .story-content p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .story-image {
+    height: 280px;
+    font-size: 3.5rem;
+  }
+
+  .timeline {
+    padding: 50px 35px;
+  }
+
+  .timeline h2 {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+  }
+
+  .timeline-event {
+    margin-bottom: 40px;
+  }
+
+  .mission-card, .vision-card {
+    padding: 35px 28px;
+  }
+
+  .mission-card h2, .vision-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
   .mission-card p, .vision-card p {
-    font-size: 0.9875rem;
+    font-size: 0.9rem;
   }
 
   .values-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
   }
 
   .value-box {
-    padding: 40px 30px;
+    padding: 35px 26px;
   }
 
   .benefit-card {
-    padding: 40px 32px;
+    padding: 35px 28px;
   }
 
   .features-section {
-    padding: 60px 40px;
+    padding: 50px 35px;
   }
 
   .features-list {
@@ -758,218 +805,218 @@
   }
 
   .team-grid {
-    gap: 30px;
+    gap: 25px;
   }
 
   .team-image {
-    height: 280px;
-    font-size: 4rem;
+    height: 240px;
+    font-size: 3.5rem;
   }
 
   .testimonials-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
   }
 
   .testimonial-full-card {
-    padding: 40px;
+    padding: 35px;
   }
 }
 
 @media (max-width: 600px) {
   .about-page {
-    padding: 80px 12px 40px 12px;
+    padding: 70px 12px 35px 12px;
   }
 
   .page-header {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   .page-header h1 {
-    font-size: 1.6rem;
-    margin-bottom: 12px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
   }
 
   .page-header p {
-    font-size: 0.9375rem;
-    line-height: 1.6;
+    font-size: 0.875rem;
+    line-height: 1.55;
   }
 
   .story-section {
-    gap: 30px;
-    margin-bottom: 40px;
+    gap: 25px;
+    margin-bottom: 35px;
   }
 
   .story-content h2 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
   }
 
   .story-content p {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    margin-bottom: 16px;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    margin-bottom: 14px;
   }
 
   .story-image {
-    height: 240px;
-    font-size: 3rem;
+    height: 220px;
+    font-size: 2.8rem;
   }
 
   .timeline {
-    padding: 40px 24px;
-    margin-top: 60px;
+    padding: 35px 20px;
+    margin-top: 50px;
   }
 
   .timeline h2 {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
+    font-size: 1.3rem;
+    margin-bottom: 35px;
   }
 
   .timeline-event {
-    padding-left: 50px;
-    margin-bottom: 40px;
+    padding-left: 45px;
+    margin-bottom: 35px;
   }
 
   .timeline-event h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    margin-bottom: 6px;
   }
 
   .timeline-event p {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
   }
 
   .mission-vision-grid {
-    gap: 30px;
+    gap: 25px;
   }
 
   .mission-card, .vision-card {
-    padding: 32px 24px;
+    padding: 28px 20px;
   }
 
   .mission-card h2, .vision-card h2 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
   }
 
   .mission-card p, .vision-card p {
-    font-size: 0.9375rem;
-    margin-bottom: 16px;
+    font-size: 0.875rem;
+    margin-bottom: 12px;
   }
 
   .values-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .value-box {
-    padding: 32px 20px;
+    padding: 28px 18px;
   }
 
   .value-icon {
-    font-size: 3rem;
-    margin-bottom: 16px;
+    font-size: 2.8rem;
+    margin-bottom: 14px;
   }
 
   .value-box h3 {
-    font-size: 1.125rem;
-    margin-bottom: 12px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
   }
 
   .benefits-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .benefit-card {
-    padding: 32px 24px;
+    padding: 28px 20px;
   }
 
   .benefit-icon {
-    font-size: 2.8rem;
-    margin-bottom: 16px;
+    font-size: 2.5rem;
+    margin-bottom: 14px;
   }
 
   .benefit-card h3 {
-    font-size: 1.125rem;
-    margin-bottom: 12px;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
   }
 
   .benefit-card p {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
   }
 
   .features-section {
-    padding: 40px 24px;
-    margin-top: 60px;
+    padding: 35px 20px;
+    margin-top: 50px;
   }
 
   .features-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
+    font-size: 1.3rem;
+    margin-bottom: 35px;
   }
 
   .features-list {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 25px;
   }
 
   .team-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .team-image {
-    height: 220px;
-    font-size: 3rem;
+    height: 200px;
+    font-size: 2.8rem;
   }
 
   .team-info {
-    padding: 32px 20px;
+    padding: 28px 18px;
   }
 
   .team-name {
-    font-size: 1.125rem;
-    margin-bottom: 8px;
+    font-size: 1.05rem;
+    margin-bottom: 6px;
   }
 
   .team-role {
-    font-size: 0.8125rem;
-    margin-bottom: 16px;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
   }
 
   .team-bio {
-    font-size: 0.875rem;
-    margin-bottom: 20px;
+    font-size: 0.85rem;
+    margin-bottom: 18px;
   }
 
   .testimonials-grid {
-    gap: 20px;
+    gap: 18px;
   }
 
   .testimonial-full-card {
-    padding: 32px 24px;
+    padding: 28px 20px;
   }
 
   .testimonial-text {
-    font-size: 0.9375rem;
-    margin-bottom: 20px;
-    line-height: 1.7;
+    font-size: 0.875rem;
+    margin-bottom: 18px;
+    line-height: 1.65;
   }
 
   .author-image {
-    width: 48px;
-    height: 48px;
-    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
   }
 
   .author-info h4 {
-    font-size: 0.9375rem;
-    margin-bottom: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
   }
 
   .author-info p {
-    font-size: 0.8125rem;
+    font-size: 0.8rem;
   }
 }
