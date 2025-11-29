@@ -447,104 +447,162 @@
 /* ============ OUR TEAM PAGE ============ */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
   margin-bottom: 55px;
   animation: fadeInUp 0.8s ease;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .team-card {
   background: #ffffff;
-  border: 1px solid #dce4f0;
-  border-radius: 12px;
+  border: 1px solid #e0e7f1;
+  border-radius: 16px;
   overflow: hidden;
   text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(91, 125, 212, 0.08);
   position: relative;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: stretch;
 }
 
 .team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(91, 125, 212, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(91, 125, 212, 0.15);
   border-color: #5b7dd4;
+  background: linear-gradient(135deg, #f8faff 0%, #faf8ff 100%);
 }
 
 .team-card:hover .team-image {
-  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+  background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%);
 }
 
 .team-image {
   width: 100%;
-  height: 240px;
-  background: linear-gradient(135deg, #f5f6f7 0%, #ececf0 100%);
+  height: 100%;
+  background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.2rem;
+  font-size: 3.5rem;
   overflow: hidden;
+  font-weight: 800;
+  color: #5b7dd4;
+  transition: all 0.4s ease;
+  position: relative;
+  min-height: 160px;
+}
+
+.team-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(91, 125, 212, 0) 0%, rgba(167, 139, 250, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-image::after {
+  opacity: 1;
 }
 
 .team-info {
-  padding: 28px 20px;
+  padding: 24px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
 }
 
 .team-name {
   font-size: clamp(1rem, 2vw, 1.15rem);
   font-family: 'Poppins', sans-serif;
   color: #1a1a1a;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 700;
   letter-spacing: -0.1px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a5568 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .team-role {
   font-size: clamp(0.75rem, 1.4vw, 0.85rem);
-  color: #666;
+  color: #5b7dd4;
   font-weight: 700;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
   font-family: 'Poppins', sans-serif;
 }
 
 .team-bio {
   font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-  color: #555;
-  line-height: 1.55;
-  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 16px;
   letter-spacing: 0.1px;
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .team-contact {
   display: flex;
-  gap: 16px;
-  justify-content: center;
-  padding-top: 24px;
-  border-top: 1px solid #e8ecf1;
+  gap: 10px;
+  justify-content: flex-start;
+  padding-top: 12px;
 }
 
 .team-contact a {
-  width: 44px;
-  height: 44px;
-  background: #f8f9fb;
-  border: 2px solid #e8ecf1;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #f8faff 0%, #f5f3ff 100%);
+  border: 2px solid #e0e7f1;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #333;
+  color: #5b7dd4;
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-contact a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #5b7dd4 0%, #a78bfa 100%);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.team-contact a:hover::before {
+  left: 0;
 }
 
 .team-contact a:hover {
-  background: #333;
   color: white;
-  border-color: #333;
-  transform: translateY(-4px);
+  border-color: #5b7dd4;
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(91, 125, 212, 0.25);
 }
 
 /* ============ TESTIMONIALS PAGE ============ */
@@ -554,44 +612,62 @@
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
   animation: fadeInUp 0.8s ease;
 }
 
 .testimonial-full-card {
   background: #ffffff;
-  padding: 32px;
-  border-radius: 12px;
-  border-left: 4px solid #a78bfa;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
-  border: 1px solid #e8e6f0;
-  border-left: 4px solid #a78bfa;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1.5px solid #e8e6f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-full-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #5b7dd4 0%, #a78bfa 100%);
 }
 
 .testimonial-full-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(167, 139, 250, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(91, 125, 212, 0.12);
+  border-color: #5b7dd4;
   background: linear-gradient(135deg, #faf8ff 0%, #f8f9ff 100%);
 }
 
 .testimonial-stars {
-  font-size: 1.1rem;
-  color: #1a1a1a;
-  margin-bottom: 16px;
-  letter-spacing: 2px;
+  font-size: 1rem;
+  color: #5b7dd4;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
   font-weight: 700;
 }
 
 .testimonial-text {
   font-size: clamp(0.8rem, 1.2vw, 0.9rem);
-  color: #555;
+  color: #666;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   font-style: italic;
   font-weight: 400;
-  letter-spacing: 0.1px;
+  letter-spacing: 0.05px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .testimonial-author {
@@ -599,39 +675,161 @@
   align-items: center;
   gap: 12px;
   padding-top: 16px;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #e8ecf1;
+  margin-top: auto;
 }
 
 .author-image {
-  width: 48px;
-  height: 56px;
-  background: linear-gradient(135deg, #f8f9fb 0%, #f0f2f7 100%);
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #f8faff 0%, #f5f3ff 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   flex-shrink: 0;
   font-weight: 800;
-  color: #0a0e27;
-  border: 2px solid #e8ecf1;
+  color: #5b7dd4;
+  border: 2px solid #e0e7f1;
 }
 
 .author-info h4 {
-  color: #0a0e27;
-  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-  margin: 0 0 4px 0;
+  color: #1a1a1a;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  margin: 0 0 2px 0;
   font-weight: 700;
   font-family: 'Poppins', sans-serif;
-  letter-spacing: -0.15px;
+  letter-spacing: -0.1px;
 }
 
 .author-info p {
-  color: #888;
-  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+  color: #999;
+  font-size: clamp(0.75rem, 1.2vw, 0.85rem);
   margin: 0;
-  letter-spacing: 0.3px;
-  font-weight: 600;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+}
+
+/* ============ GOALS & OBJECTIVES SECTION ============ */
+.goals-section {
+  margin-top: 80px;
+  margin-bottom: 55px;
+}
+
+.goals-section h2 {
+  text-align: center;
+  font-size: clamp(1.3rem, 3.5vw, 1.9rem);
+  font-family: 'Poppins', sans-serif;
+  color: #1a1a1a;
+  margin-bottom: 50px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  text-transform: capitalize;
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a5568 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.goal-item {
+  background: #ffffff;
+  padding: 36px 32px;
+  border: 1.5px solid #e0e7f1;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 16px rgba(91, 125, 212, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.goal-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #5b7dd4 0%, #a78bfa 100%);
+}
+
+.goal-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(91, 125, 212, 0) 0%, rgba(167, 139, 250, 0.03) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.goal-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(91, 125, 212, 0.12);
+  border-color: #5b7dd4;
+  background: linear-gradient(135deg, #f8faff 0%, #faf8ff 100%);
+}
+
+.goal-item:hover::after {
+  opacity: 1;
+}
+
+.goal-item h3 {
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  font-family: 'Poppins', sans-serif;
+  color: #1a1a1a;
+  margin-bottom: 18px;
+  font-weight: 700;
+  letter-spacing: -0.1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.goal-item h3::before {
+  content: '▸';
+  color: #5b7dd4;
+  font-size: 1.5rem;
+}
+
+.goal-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goal-item li {
+  font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.goal-item li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #5b7dd4;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.goal-item li:last-child {
+  margin-bottom: 0;
 }
 
 /* ============ ANIMATIONS ============ */
@@ -709,8 +907,25 @@
   }
 
   .team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 35px;
+  }
+
+  .team-image {
+    height: 160px;
+    font-size: 3rem;
+  }
+
+  .team-info {
+    padding: 24px 28px;
+  }
+
+  .goals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .goal-item {
+    padding: 32px 28px;
   }
 }
 
@@ -964,51 +1179,103 @@
 
   .team-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 25px;
+  }
+
+  .team-card {
+    grid-template-columns: 140px 1fr;
   }
 
   .team-image {
-    height: 200px;
+    height: 140px;
     font-size: 2.8rem;
+    min-height: 140px;
   }
 
   .team-info {
-    padding: 28px 18px;
+    padding: 20px 20px;
   }
 
   .team-name {
     font-size: 1.05rem;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   .team-role {
     font-size: 0.8rem;
-    margin-bottom: 14px;
+    margin-bottom: 6px;
   }
 
   .team-bio {
     font-size: 0.85rem;
-    margin-bottom: 18px;
+    margin-bottom: 12px;
+    -webkit-line-clamp: 2;
   }
 
-  .testimonials-grid {
-    gap: 18px;
+  .team-contact {
+    gap: 8px;
+    padding-top: 10px;
+  }
+
+  .team-contact a {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .goals-section {
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  .goals-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+
+  .goals-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .goal-item {
+    padding: 28px 24px;
+  }
+
+  .goal-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .goal-item li {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
   }
 
   .testimonial-full-card {
-    padding: 28px 20px;
+    padding: 24px 20px;
   }
 
   .testimonial-text {
-    font-size: 0.875rem;
-    margin-bottom: 18px;
-    line-height: 1.65;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    line-height: 1.55;
+    -webkit-line-clamp: 3;
   }
 
   .author-image {
-    width: 44px;
-    height: 44px;
-    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .author-info h4 {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  .author-info p {
+    font-size: 0.8rem;
   }
 
   .author-info h4 {

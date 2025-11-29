@@ -60,7 +60,50 @@ jspm_packages/
 .env
 .env.test
 .env.local
+.env.local.php
+.env.*.local
 .env.production
+.env.development
+.env.staging
+.env.*.example
+
+# Sensitive files and credentials
+*.pem
+*.key
+*.crt
+*.cert
+*.pfx
+*.p12
+credentials.json
+secrets.json
+config/secrets/
+private/
+secrets/
+config.json
+
+# API keys and tokens
+.apikey
+.api_key
+.api_keys
+.token
+.tokens
+api_keys.json
+tokens.json
+openweather_key
+google_maps_key
+chat_api_key
+
+# AWS credentials
+.aws/
+aws_credentials.json
+
+# Google Cloud
+google-cloud-key.json
+gcp-key.json
+
+# Database credentials
+db_config.json
+database.yml
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -108,3 +151,6 @@ Thumbs.db
 # Build outputs
 build/
 dist/
+
+# Documentation files (local)
+README.md

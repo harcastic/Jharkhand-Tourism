@@ -1,5 +1,3 @@
-
-
 <section class="content-section">
     <h2>Plan Your Perfect Jharkhand Journey</h2>
     <p>Create your ideal itinerary based on your preferences, budget, and travel style.</p>
@@ -105,70 +103,271 @@
             
             <button type="submit" class="submit-button">Generate My Itinerary</button>
         </form>
-
-        <div id="loading" class="loading-container" style="display: none;">
-            <div class="spinner"></div>
-            <p>Creating your perfect itinerary...</p>
-        </div>
     </div>
 </section>
 
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.content-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.content-section h2 {
+  font-size: 32px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.content-section > p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.planner-form {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.planner-form h3 {
+  color: #107869;
+  font-size: 24px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.form-section {
+  margin-bottom: 35px;
+}
+
+.form-section h4 {
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0f0ed;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1.5px solid #e0f0ed;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #107869;
+  box-shadow: 0 0 0 3px rgba(16, 120, 105, 0.1);
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.interest-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background: #f8fffe;
+  border: 1.5px solid #e0f0ed;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interest-item:hover {
+  background: #f0fffe;
+  border-color: #107869;
+}
+
+.interest-item input {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+  accent-color: #107869;
+}
+
+.interest-item span {
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #107869 0%, #5cd85a 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 16px rgba(16, 120, 105, 0.2);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 120, 105, 0.3);
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-form {
+    padding: 20px;
+  }
+
+  .content-section h2 {
+    font-size: 24px;
+  }
+}
+</style>
+
 <script>
-    const form = document.getElementById('tripPlannerForm');
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+const activities = {
+    'Ranchi': {
+        nature: ['Jamshedpur Steel City Tour', 'Tagore Hill Visit', 'Lake Picnic', 'Forest Trek', 'Botanical Garden'],
+        adventure: ['Rock Climbing at Hundru Falls', 'Trekking', 'Paragliding', 'Mountain Biking'],
+        culture: ['Jain Temple Visit', 'Tribal Art Gallery', 'Local Museums', 'Traditional Markets'],
+        spiritual: ['Ancient Temple Complex', 'Meditation Retreat', 'Ashram Visit'],
+        photography: ['Sunrise at Tagore Hill', 'Waterfall Photography', 'Street Photography'],
+        food: ['Local Dhabas', 'Street Food Tour', 'Traditional Cooking Class']
+    },
+    'Deoghar': {
+        nature: ['Basukinath Temple Trek', 'Sacred Sthal Waterfall', 'Nature Walk', 'Bird Watching'],
+        adventure: ['Hill Trekking', 'Waterfall Trek', 'River Crossing'],
+        culture: ['Ancient Temple Complex', 'Religious Site Tour', 'Local Crafts'],
+        spiritual: ['Pilgrimage Tour', 'Meditation Spots', 'Sacred Springs'],
+        photography: ['Waterfall Photography', 'Temple Architecture', 'Landscape'],
+        food: ['Temple Prasad', 'Local Cuisine', 'River-side Dining']
+    },
+    'Hazaribagh': {
+        nature: ['Lake Boating', 'Wildlife Sanctuary', 'Bird Watching', 'Nature Trail'],
+        adventure: ['Trekking', 'Water Sports', 'Camping', 'Fishing'],
+        culture: ['Local Crafts Market', 'Traditional Markets', 'Village Tour'],
+        spiritual: ['Temple Visits', 'Ashram Retreat', 'Meditation'],
+        photography: ['Lake Photography', 'Wildlife Shots', 'Sunset Views'],
+        food: ['Local Fish Dishes', 'Traditional Meals', 'Street Food']
+    },
+    'Jamshedpur': {
+        nature: ['Dalma Wildlife Sanctuary', 'Garden Tours', 'Lake Visits'],
+        adventure: ['Rock Climbing', 'Trekking', 'Water Sports'],
+        culture: ['Steel Museum', 'Art Gallery', 'Cultural Shows'],
+        spiritual: ['Temple Tours', 'Meditation'],
+        photography: ['Industrial Heritage', 'Nature Shots', 'City Landscape'],
+        food: ['Multi-cuisine Restaurants', 'Local Cuisine', 'Street Food']
+    },
+    'Dhanbad': {
+        nature: ['Lake Tours', 'Green Parks', 'Nature Reserve'],
+        adventure: ['Water Sports', 'Adventure Parks', 'Trekking'],
+        culture: ['Coal Mining Museum', 'Art Gallery', 'Historical Sites'],
+        spiritual: ['Temple Visits', 'Meditation Spots'],
+        photography: ['Industrial Photography', 'Lake Views', 'Sunset'],
+        food: ['Local Restaurants', 'Street Food', 'Traditional Cuisine']
+    },
+    'Betla National Park': {
+        nature: ['Tiger Safari', 'Bird Watching', 'Forest Trek', 'Wildlife Tour'],
+        adventure: ['Jungle Trekking', 'Camping'],
+        photography: ['Wildlife Photography', 'Nature Shots'],
+        culture: ['Tribal Village Tour'],
+        food: ['Camp Meals', 'Local Cuisine']
+    },
+    'Netarhat': {
+        nature: ['Hill Station Views', 'Trekking', 'Waterfall Visit'],
+        adventure: ['Mountain Biking', 'Trekking', 'Rock Climbing'],
+        photography: ['Sunrise Photography', 'Landscape', 'Waterfall'],
+        food: ['Local Cuisine', 'Hill Station Dining']
+    },
+    'Parasnath': {
+        nature: ['Hill Trek', 'Nature Walk', 'Scenic Views'],
+        adventure: ['Temple Trek', 'Rock Climbing'],
+        spiritual: ['Jain Temple Visit', 'Pilgrimage', 'Meditation'],
+        culture: ['Sacred Sites', 'Village Tour'],
+        food: ['Local Cuisine', 'Temple Food']
+    }
+};
 
-        const startingPoint = document.getElementById('startingPoint').value.trim();
-        const destination = document.getElementById('destination').value.trim();
-        const duration = parseInt(document.getElementById('duration').value);
-        const people = parseInt(document.getElementById('people').value);
-        const budget = document.getElementById('budget').value;
-        const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value);
-        const specialRequirements = document.getElementById('specialRequirements').value.trim();
+document.getElementById('tripPlannerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-        // Validation
-        if (!startingPoint || !destination || !duration || !people || !budget) {
-            alert('Please fill in all required fields');
-            return;
-        }
+    const startingPoint = document.getElementById('startingPoint').value.trim();
+    const destination = document.getElementById('destination').value.trim();
+    const duration = parseInt(document.getElementById('duration').value);
+    const people = parseInt(document.getElementById('people').value);
+    const budget = document.getElementById('budget').value;
+    const interests = Array.from(document.querySelectorAll('input[name="interests"]:checked')).map(el => el.value);
+    const specialRequirements = document.getElementById('specialRequirements').value.trim();
 
-        if (interests.length === 0) {
-            alert('Please select at least one interest');
-            return;
-        }
+    if (!startingPoint || !destination || !duration || !people || !budget) {
+        alert('Please fill in all required fields');
+        return;
+    }
 
-        if (duration < 1 || duration > 30) {
-            alert('Trip duration should be between 1 and 30 days.');
-            return;
-        }
+    if (interests.length === 0) {
+        alert('Please select at least one interest');
+        return;
+    }
 
-        if (people < 1 || people > 50) {
-            alert('Number of people should be between 1 and 50.');
-            return;
-        }
+    if (duration < 1 || duration > 30 || people < 1 || people > 50) {
+        alert('Please check your trip duration (1-30 days) and number of people (1-50)');
+        return;
+    }
 
-        // Show loading
-        document.getElementById('loading').style.display = 'block';
-        form.style.display = 'none';
+    const formData = {
+        startingPoint,
+        destination,
+        duration,
+        people,
+        budget,
+        interests: interests.join(','),
+        specialRequirements
+    };
 
-        // Prepare data to send
-        const formData = {
-            startingPoint,
-            destination,
-            duration,
-            people,
-            budget,
-            interests: interests.join(','),
-            specialRequirements
-        };
-
-        // Store in localStorage and redirect to results
-        localStorage.setItem('tripPlan', JSON.stringify(formData));
-        
-        // Simulate API call delay
-        setTimeout(() => {
-            window.location.href = '/plantrip/itinerary';
-        }, 2000);
-    });
+    localStorage.setItem('tripPlan', JSON.stringify(formData));
+    setTimeout(() => {
+        window.location.href = '/plantrip/itinerary';
+    }, 500);
+});
 </script>

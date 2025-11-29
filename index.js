@@ -1,7 +1,11 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import expressLayouts from 'express-ejs-layouts';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -32,8 +36,8 @@ app.get('/about/mission-vision', (req, res) => {
 app.get('/about/why-choose-us', (req, res) => {
     res.render('aboutTourism/whyChooseUs', { title: 'Why Choose Us' });
 });
-app.get('/about/our-team', (req, res) => {
-    res.render('aboutTourism/ourTeam', { title: 'Our Team' });
+app.get('/about/credits', (req, res) => {
+    res.render('aboutTourism/credits', { title: 'Credit' });
 });
 app.get('/about/testimonials', (req, res) => {
     res.render('aboutTourism/testimonials', { title: 'Testimonials' });
