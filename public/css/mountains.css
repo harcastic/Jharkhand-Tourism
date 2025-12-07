@@ -1,21 +1,28 @@
 /* Hero */
 .mountains-hero {
-  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), 
-              url("/assets/landingimg.jpg") center/cover no-repeat fixed;
+  background: url("/assets/landingimg.jpg") center/cover no-repeat;
   text-align: center;
-  padding: 10rem 2rem;
-  color: white;
+  padding: 120px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .mountains-title {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #08313a;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
 }
 
 .mountains-subtitle {
-  font-size: 1.4rem;
-  margin: 1.2rem auto 2rem auto;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  line-height: 1.8;
   max-width: 700px;
+  margin: 0 auto 20px;
+  color: #555;
+  font-weight: 500;
 }
 
 .mountains-cta-btn {
@@ -75,7 +82,7 @@
   flex: 2 1 300px;
 }
 
-/* Flip Cards */
+/* Mountain Activities Cards */
 .mountains-cards {
   padding: 5rem 2rem;
   background: #fff;
@@ -87,55 +94,77 @@
   margin-bottom: 3rem;
 }
 
-.cards-grid {
+.mountains-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .mountain-card {
-  perspective: 1000px;
-  position: relative;
-  height: 280px;
-}
-.mountain-card .card-front, 
-.mountain-card .card-back {
-  position: absolute;
-  backface-visibility: hidden;
-  border-radius: 12px;
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  transition: transform 0.8s;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
-
-.card-front img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.card-front h3 {
-  margin-top: 1rem;
-  color: #2a502a;
-}
-
-.card-back {
-  background: #2a502a;
-  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  transform: rotateY(180deg);
+  flex-direction: column;
 }
 
-.mountain-card:hover .card-front {
-  transform: rotateY(180deg);
+.mountain-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
-.mountain-card:hover .card-back {
-  transform: rotateY(360deg);
+
+.mountain-card-image {
+  width: 100%;
+  height: 144px;
+  object-fit: cover;
+  display: block;
+}
+
+.mountain-card-content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mountain-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #08313a;
+  margin: 0 0 8px 0;
+}
+
+.mountain-card-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 15px 0;
+  flex-grow: 1;
+  line-height: 1.4;
+}
+
+.mountain-card-footer {
+  margin-top: auto;
+}
+
+.mountain-card-btn {
+  background: #107869;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.mountain-card-btn:hover {
+  background: #054d36;
 }
 
 /* Call to Action */
@@ -200,11 +229,8 @@
   .mountains-subtitle {
     font-size: 1.1rem;
   }
-  .cards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-  .mountain-card {
-    height: 250px;
+  .mountains-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .timeline-container {
     gap: 1.5rem;
@@ -226,11 +252,8 @@
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
   }
-  .cards-grid {
+  .mountains-cards-grid {
     grid-template-columns: 1fr;
-  }
-  .mountain-card {
-    height: 220px;
   }
   .timeline-item {
     padding: 1rem;

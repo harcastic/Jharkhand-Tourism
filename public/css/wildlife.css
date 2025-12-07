@@ -1,20 +1,28 @@
 /* HERO SECTION */
 .wildlife-hero {
-  background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), 
-              url("/assets/landingimg.jpg") center/cover no-repeat fixed;
+  background: url("/assets/landingimg.jpg") center/cover no-repeat;
   text-align: center;
-  color: #fff;
-  padding: 10rem 2rem;
+  padding: 120px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .wildlife-title {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: 20px;
+  color: #08313a;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
 }
+
 .wildlife-subtitle {
-  font-size: 1.4rem;
-  margin: 1rem auto 2rem auto;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  line-height: 1.8;
   max-width: 700px;
+  margin: 0 auto 20px;
+  color: #555;
+  font-weight: 500;
 }
 .wildlife-cta-btn {
   display: inline-block;
@@ -65,9 +73,10 @@
   flex: 2 1 300px;
 }
 
-/* FLIP CARDS */
+/* SAFARI ACTIVITIES CARDS */
 .wildlife-cards {
   padding: 5rem 2rem;
+  background: #fff;
 }
 .wildlife-cards-header {
   text-align: center;
@@ -76,49 +85,66 @@
 }
 .wildlife-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .wildlife-card {
-  perspective: 1000px;
-  position: relative;
-  height: 400px;
-}
-.wildlife-card-front,
-.wildlife-card-back {
-  position: absolute;
-  border-radius: 12px;
+  background: #fff;
+  border-radius: 16px;
   overflow: hidden;
-  backface-visibility: hidden;
-  width: 100%;
-  height: 100%;
-  transition: transform .8s;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-}
-.wildlife-card-front img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-.wildlife-card-front h3 {
-  margin-top: 1rem;
-  color: #17421f;
-}
-.wildlife-card-back {
-  background: #17421f;
-  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  transform: rotateY(180deg);
+  flex-direction: column;
 }
-.wildlife-card:hover .wildlife-card-front {
-  transform: rotateY(180deg);
+.wildlife-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
-.wildlife-card:hover .wildlife-card-back {
-  transform: rotateY(360deg);
+.wildlife-card-image {
+  width: 100%;
+  height: 144px;
+  object-fit: cover;
+  display: block;
+}
+.wildlife-card-content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.wildlife-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #08313a;
+  margin: 0 0 8px 0;
+}
+.wildlife-card-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 15px 0;
+  flex-grow: 1;
+  line-height: 1.4;
+}
+.wildlife-card-footer {
+  margin-top: auto;
+}
+.wildlife-card-btn {
+  background: #107869;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+.wildlife-card-btn:hover {
+  background: #054d36;
 }
 
 /* CTA SECTION */
@@ -165,8 +191,7 @@
 @media (max-width: 768px) {
   .wildlife-title { font-size: 2.2rem; }
   .wildlife-subtitle { font-size: 1.1rem; }
-  .wildlife-cards-grid { grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); }
-  .wildlife-card { height: 250px; }
+  .wildlife-cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
   .wildlife-hero { padding: 6rem 1.2rem; }
@@ -174,5 +199,4 @@
   .wildlife-subtitle { font-size: 1rem; }
   .wildlife-cta-btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
   .wildlife-cards-grid { grid-template-columns: 1fr; }
-  .wildlife-card { height: 220px; }
 }

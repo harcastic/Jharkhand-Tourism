@@ -905,7 +905,7 @@ body {
 /* ============ TRAVEL TIPS ============ */
 .travel-tips {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #f8fffe 0%, #f0f9f7 100%);
 }
 
 .tips-container {
@@ -1314,4 +1314,160 @@ body {
   }
 }
 
+/* ============ CITY BREAKS PREVIEW ============ */
+.city-breaks-preview {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8fffe 0%, #f0f9f7 100%);
+  position: relative;
+  overflow: hidden;
+}
 
+.city-breaks-preview::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(92, 216, 90, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.city-breaks-preview::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 120, 105, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.city-breaks-preview-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.city-breaks-preview-content {
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.city-breaks-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #107869;
+  margin-bottom: 10px;
+}
+
+.city-breaks-preview-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: #08313a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.city-breaks-preview-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.city-breaks-features {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.city-breaks-features li {
+  font-size: 1rem;
+  color: #333;
+  padding: 10px 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.city-breaks-preview-button-box {
+  animation: slideInRight 0.8s ease forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.city-breaks-preview-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, #107869 0%, #5cd85a 100%);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 8px 25px rgba(16, 120, 105, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.city-breaks-preview-btn:hover {
+  background: linear-gradient(135deg, #5cd85a 0%, #107869 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(92, 216, 90, 0.4);
+}
+
+.city-breaks-preview-subtext {
+  margin-top: 15px;
+  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .city-breaks-preview-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .city-breaks-preview-content {
+    text-align: center;
+  }
+
+  .city-breaks-preview-button-box {
+    text-align: center;
+  }
+
+  .city-breaks-preview-title {
+    font-size: 2rem;
+  }
+}

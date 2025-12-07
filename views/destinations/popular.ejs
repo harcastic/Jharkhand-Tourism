@@ -8,73 +8,218 @@
   </div>
 </section>
 
-<!-- Filter Tabs -->
-<section class="popular-filters">
-  <div class="filter-buttons">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="nature">Nature</button>
-    <button class="filter-btn" data-filter="culture">Culture</button>
-    <button class="filter-btn" data-filter="adventure">Adventure</button>
-  </div>
-</section>
-
 <!-- Destinations Grid -->
 <section class="popular-destinations">
+  <!-- Filter Tabs -->
+  <div class="popular-filters">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="nature">Nature</button>
+      <button class="filter-btn" data-filter="culture">Culture</button>
+      <button class="filter-btn" data-filter="adventure">Adventure</button>
+    </div>
+  </div>
+
   <div class="destinations-grid">
 
     <!-- Nature Cards -->
     <div class="destination-card nature hidden-popular">
-      <img src="/assets/hundru.png" alt="Hundru Waterfall">
-      <div class="destination-overlay">
-        <h3>Hundru Falls</h3>
-        <p>Majestic cascades tumbling down rugged cliffs.</p>
+      <img src="/assets/hundru.png" alt="Hundru Waterfall" class="destination-card-image">
+      <div class="destination-card-content">
+        <h3 class="destination-card-title">Hundru Falls</h3>
+        <p class="destination-card-description">Majestic cascades tumbling down rugged cliffs into crystal clear pools.</p>
+        <div class="destination-highlights">
+          <span class="destination-highlight-tag">Waterfall</span>
+          <span class="destination-highlight-tag">Photography</span>
+          <span class="destination-highlight-tag">Adventure</span>
+        </div>
+        <div class="destination-card-footer">
+          <span class="destination-card-rating">⭐ 4.6/5</span>
+          <button class="destination-card-btn">Explore</button>
+        </div>
       </div>
     </div>
 
     <div class="destination-card nature hidden-popular">
-      <img src="/assets/netarhat.png" alt="Netarhat Hills">
-      <div class="destination-overlay">
-        <h3>Netarhat</h3>
-        <p>The Queen of Chotanagpur Plateau.</p>
+      <img src="/assets/netarhat.png" alt="Netarhat Hills" class="destination-card-image">
+      <div class="destination-card-content">
+        <h3 class="destination-card-title">Netarhat</h3>
+        <p class="destination-card-description">The Queen of Chotanagpur Plateau with stunning sunsets and lush greenery.</p>
+        <div class="destination-highlights">
+          <span class="destination-highlight-tag">Trekking</span>
+          <span class="destination-highlight-tag">Sunset</span>
+          <span class="destination-highlight-tag">Scenic Views</span>
+        </div>
+        <div class="destination-card-footer">
+          <span class="destination-card-rating">⭐ 4.8/5</span>
+          <button class="destination-card-btn">Explore</button>
+        </div>
       </div>
     </div>
 
     <div class="destination-card adventure hidden-popular">
-      <img src="/assets/parasnath.png" alt="Parasnath Hills">
-      <div class="destination-overlay">
-        <h3>Parasnath Hills</h3>
-        <p>A trek that blends spirituality with adventure.</p>
+      <img src="/assets/parasnath.png" alt="Parasnath Hills" class="destination-card-image">
+      <div class="destination-card-content">
+        <h3 class="destination-card-title">Parasnath Hills</h3>
+        <p class="destination-card-description">A trek that blends spirituality with adventure through sacred mountain peaks.</p>
+        <div class="destination-highlights">
+          <span class="destination-highlight-tag">Trekking</span>
+          <span class="destination-highlight-tag">Spiritual</span>
+          <span class="destination-highlight-tag">Summit</span>
+        </div>
+        <div class="destination-card-footer">
+          <span class="destination-card-rating">⭐ 4.7/5</span>
+          <button class="destination-card-btn">Explore</button>
+        </div>
       </div>
     </div>
 
     <div class="destination-card culture hidden-popular">
-      <img src="/assets/ranchi-museum.png" alt="Ranchi Museum">
-      <div class="destination-overlay">
-        <h3>Ranchi Museum</h3>
-        <p>Artifacts, heritage, and the tribal history of Jharkhand.</p>
+      <img src="/assets/ranchi-museum.png" alt="Ranchi Museum" class="destination-card-image">
+      <div class="destination-card-content">
+        <h3 class="destination-card-title">Ranchi Museum</h3>
+        <p class="destination-card-description">Artifacts, heritage, and the tribal history of Jharkhand preserved in time.</p>
+        <div class="destination-highlights">
+          <span class="destination-highlight-tag">Museum</span>
+          <span class="destination-highlight-tag">History</span>
+          <span class="destination-highlight-tag">Culture</span>
+        </div>
+        <div class="destination-card-footer">
+          <span class="destination-card-rating">⭐ 4.4/5</span>
+          <button class="destination-card-btn">Explore</button>
+        </div>
       </div>
     </div>
 
     <div class="destination-card culture hidden-popular">
-      <img src="/assets/tribal.png" alt="Tribal Festival">
-      <div class="destination-overlay">
-        <h3>Tribal Festivals</h3>
-        <p>Colorful celebrations and local traditions.</p>
+      <img src="/assets/tribal.png" alt="Tribal Festival" class="destination-card-image">
+      <div class="destination-card-content">
+        <h3 class="destination-card-title">Tribal Festivals</h3>
+        <p class="destination-card-description">Colorful celebrations and local traditions showcasing Jharkhand's vibrant heritage.</p>
+        <div class="destination-highlights">
+          <span class="destination-highlight-tag">Festival</span>
+          <span class="destination-highlight-tag">Culture</span>
+          <span class="destination-highlight-tag">Local Experience</span>
+        </div>
+        <div class="destination-card-footer">
+          <span class="destination-card-rating">⭐ 4.5/5</span>
+          <button class="destination-card-btn">Explore</button>
+        </div>
       </div>
     </div>
 
     <div class="destination-card adventure hidden-popular">
-      <img src="/assets/dalma.png" alt="Dalma Wildlife Sanctuary">
-      <div class="destination-overlay">
-        <h3>Dalma Wildlife Sanctuary</h3>
-        <p>Wild elephants and serene jungle trails.</p>
+      <img src="/assets/dalma.png" alt="Dalma Wildlife Sanctuary" class="destination-card-image">
+      <div class="destination-card-content">
+        <h3 class="destination-card-title">Dalma Wildlife Sanctuary</h3>
+        <p class="destination-card-description">Wild elephants and serene jungle trails through pristine natural landscapes.</p>
+        <div class="destination-highlights">
+          <span class="destination-highlight-tag">Safari</span>
+          <span class="destination-highlight-tag">Wildlife</span>
+          <span class="destination-highlight-tag">Nature</span>
+        </div>
+        <div class="destination-card-footer">
+          <span class="destination-card-rating">⭐ 4.9/5</span>
+          <button class="destination-card-btn">Explore</button>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- Modal -->
+<div class="modal" id="destinationModal">
+  <div class="modal-content">
+    <span class="modal-close">&times;</span>
+    <div class="modal-body">
+      <img class="modal-image" src="" alt="">
+      <div class="modal-text">
+        <h2 class="modal-title"></h2>
+        <p class="modal-description"></p>
+        <div class="modal-details"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
+  // Destination details data
+  const destinationDetails = {
+    'Hundru Falls': {
+      image: '/assets/hundru.png',
+      description: 'Majestic cascades tumbling down rugged cliffs into crystal clear pools.',
+      details: '<p><strong>Height:</strong> 98 meters</p><p><strong>Best Time to Visit:</strong> June to September (monsoon)</p><p><strong>Activities:</strong> Photography, trekking, and swimming in crystal clear pools.</p><p><strong>Getting There:</strong> 45 km from Ranchi, easily accessible by road.</p>'
+    },
+    'Netarhat': {
+      image: '/assets/netarhat.png',
+      description: 'The Queen of Chotanagpur Plateau with stunning sunsets and lush greenery.',
+      details: '<p><strong>Altitude:</strong> 3,622 feet</p><p><strong>Best Time to Visit:</strong> October to May</p><p><strong>Activities:</strong> Trekking, sunset viewing, photography, and nature walks.</p><p><strong>Attractions:</strong> Panchmukhi falls, lodges with panoramic views, and local villages.</p>'
+    },
+    'Parasnath Hills': {
+      image: '/assets/parasnath.png',
+      description: 'A trek that blends spirituality with adventure through sacred mountain peaks.',
+      details: '<p><strong>Height:</strong> 4,477 feet (highest point in Jharkhand)</p><p><strong>Best Time to Visit:</strong> October to May</p><p><strong>Activities:</strong> Trek to the summit, spiritual exploration, photography, and camping.</p><p><strong>Religious Significance:</strong> Sacred Jain pilgrimage site with 24 temples.</p>'
+    },
+    'Ranchi Museum': {
+      image: '/assets/ranchi-museum.png',
+      description: 'Artifacts, heritage, and the tribal history of Jharkhand preserved in time.',
+      details: '<p><strong>Established:</strong> 1910</p><p><strong>Timings:</strong> 10 AM to 5 PM (Closed Mondays)</p><p><strong>Collections:</strong> Tribal artifacts, weapons, fossils, manuscripts, and modern art.</p><p><strong>Entry Fee:</strong> Affordable for both Indian and international visitors.</p>'
+    },
+    'Tribal Festivals': {
+      image: '/assets/tribal.png',
+      description: 'Colorful celebrations and local traditions showcasing Jharkhand\'s vibrant heritage.',
+      details: '<p><strong>Major Festivals:</strong> Sarhul, Chhath, and Karma</p><p><strong>Best Time to Visit:</strong> During festival seasons</p><p><strong>Highlights:</strong> Traditional dances, music, food, and cultural performances.</p><p><strong>Experience:</strong> Immerse yourself in authentic tribal culture and traditions.</p>'
+    },
+    'Dalma Wildlife Sanctuary': {
+      image: '/assets/dalma.png',
+      description: 'Wild elephants and serene jungle trails through pristine natural landscapes.',
+      details: '<p><strong>Area:</strong> 192 sq km</p><p><strong>Best Time to Visit:</strong> October to May</p><p><strong>Wildlife:</strong> Asian elephants, leopards, wild boar, and various bird species.</p><p><strong>Activities:</strong> Safari, trekking, bird watching, and nature photography.</p>'
+    }
+  };
+
+  // Modal functionality
+  const modal = document.getElementById('destinationModal');
+  const closeBtn = document.querySelector('.modal-close');
+  
+  document.querySelectorAll('.destination-card-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const card = btn.closest('.destination-card');
+      const title = card.querySelector('.destination-card-title').textContent;
+      const details = destinationDetails[title];
+      
+      if (details) {
+        document.querySelector('.modal-image').src = details.image;
+        document.querySelector('.modal-title').textContent = title;
+        document.querySelector('.modal-description').textContent = details.description;
+        document.querySelector('.modal-details').innerHTML = details.details;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+  
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+  
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Close modal with ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
   // Intersection Observer for animations
   const popularObserver = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{

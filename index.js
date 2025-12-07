@@ -65,6 +65,9 @@ app.get('/destinations/wildlife-safaries', (req, res) => {
 app.get('/destinations/popular-destinations', (req, res) => {
     res.render('destinations/popular', { title: 'popular-destinations' });
 });
+app.get('/destinations/cityBreaks', (req, res) => {
+    res.render('destinations/cityBreaks', { title: 'city-breaks' });
+});
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
