@@ -12,7 +12,7 @@ services:
         value: production
       - key: PORT
         value: 10000
-      - key: GOOGLE_MAPS_API_KEY
+      - key: OPENWEATHER_API_KEY
         sync: false
 
     healthCheckPath: /
