@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: jharkhand-tourism
+    env: node
+    plan: free   # change to starter/standard if needed
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: GOOGLE_MAPS_API_KEY
+        sync: false
+
+    healthCheckPath: /
+
+    # Optional: if using a specific Node version
+    # runtime:
+    #   nodeVersion: 18

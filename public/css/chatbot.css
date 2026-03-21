@@ -38,7 +38,7 @@
 }
 
 #chat-header {
-  background: #e6b230;
+  background: #3bc41f;
   color: white;
   padding: 10px;
   text-align: center;
@@ -84,14 +84,14 @@
 }
 
 #chat-input button {
-  background: #e6b230;
-  color: rgb(104, 78, 29);
+  background:  #57be55;
+  color: rgb(0, 0, 0);
   border: none;
   padding: 10px 15px;
   cursor: pointer;
 }
 #chat-input button:hover {
-  background: #a06945;
+  background: #03ae1a;
 }
 
 /* ================= RESPONSIVE BREAKPOINTS ================= */

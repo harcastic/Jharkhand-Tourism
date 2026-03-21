@@ -11,8 +11,8 @@
     // API Key is now loaded from environment variables via server
     const API_KEY = "<%= process.env.OPENWEATHER_API_KEY %>";
 
-// 👇 v2: fetch weather via OpenWeather API
-document.getElementById("checkBtn").addEventListener("click", () => {
+    // 👇 v2: fetch weather via OpenWeather API
+    document.getElementById("checkBtn").addEventListener("click", () => {
     const city = document.getElementById("cityInput").value.trim();
     const resultDiv = document.getElementById("result");
 
